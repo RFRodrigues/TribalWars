@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
-import './style/Home.scss'
 import 'bootstrap/dist/css/bootstrap.css';
 import { Grid, Row, Col, Table, Dropdown, MenuItem, Panel, Modal, Button, FormGroup, Form, ControlLabel, FormControl } from 'react-bootstrap';
 
 
 
-class Home extends Component {
+class CityView extends Component {
 
   constructor(props, context) {
     super(props, context);
@@ -37,14 +36,9 @@ class Home extends Component {
   render() {
 
     return (
-      <div className="App">
-
-        <div className="btn-start">
-          
+      <div id="city">
 
 
-
-        </div>
 
 
         
@@ -53,4 +47,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default CityView;

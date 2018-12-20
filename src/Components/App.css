@@ -27,4 +27,11 @@
   to { transform: rotate(360deg); }
 }
 
+#city{
+  background-image: url("./citylvl0.png");
+  height: 470px;
+  width: 665px;
+  margin: 0 auto;
+}
+
 

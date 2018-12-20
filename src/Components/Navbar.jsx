@@ -13,7 +13,8 @@ import {
   DropdownItem
 } from 'reactstrap';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Home from './Home';
+import CityView from './CityView';
+import Map from './Map';
 
 export default class Example extends React.Component {
   constructor(props) {
@@ -41,6 +42,9 @@ export default class Example extends React.Component {
                 <NavItem>
                   <NavLink href="/leaderboards/">Leaderboards</NavLink>
                 </NavItem>
+                <NavItem>
+                  <NavLink href="/map/">Mapa</NavLink>
+                </NavItem>
 
                 <UncontrolledDropdown nav inNavbar>
                   <DropdownToggle nav caret>
@@ -60,7 +64,9 @@ export default class Example extends React.Component {
             </Collapse>
           </Navbar>
 
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" component={CityView} />
+          <Route exact path="/Map" component={Map} />
+          
 
 
         </div>
