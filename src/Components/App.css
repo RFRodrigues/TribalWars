@@ -1,3 +1,9 @@
+@font-face {
+  font-family: medievalIntro;
+  src: url(../fonts/vinque.ttf);
+}
+
+
 .App {
   text-align: center;
 }
@@ -27,11 +33,49 @@
   to { transform: rotate(360deg); }
 }
 
-#city{
-  background-image: url("./citylvl0.png");
-  height: 470px;
-  width: 665px;
-  margin: 0 auto;
+.loginView{
+  background-image: url("../Components/resources/images/splashScreen.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
 }
 
+.loginContainer{
+  align-content: center;
+  padding-top: 25vh;
+  padding-left: 38vw;
+}
+
+.loginForm  {
+  max-width: 500px;
+  border: white 1px solid;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px 4px;
+  background-color: rgba(58, 58, 74, 0.6);
+}
+
+.loginForm h1{
+  padding-top: 20px;
+  padding-left: 120px;
+}
+
+.gameName{
+  font-family: medievalIntro;
+}
+
+.btnLogin, .btnRegistar{
+  max-width: 300px;
+}
+
+.btnlv{
+  padding-left: 95px;
+  padding-bottom: 30px;
+}
+
+.loginImages{
+  max-width: 25px;
+  max-height: 25px;
+}
 

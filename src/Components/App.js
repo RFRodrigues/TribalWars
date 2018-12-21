@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import Navbar from './Navbar'
+import LoginView from './LoginView'
 import 'bootstrap/dist/css/bootstrap.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
 
 
 
@@ -13,10 +14,8 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 const BasicExample = () => (
   <Router>
     <div>
-      <Navbar/>
-      
-      
-
+      <Route exact path="/" component={LoginView} />
+      <Route exact path="/Map" component={Map} />
     </div>
   </Router>
 );

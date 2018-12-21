@@ -15,6 +15,7 @@ import {
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import CityView from './CityView';
 import Map from './Map';
+import Login from './Login';
 
 export default class Example extends React.Component {
   constructor(props) {
@@ -64,7 +65,7 @@ export default class Example extends React.Component {
             </Collapse>
           </Navbar>
 
-          <Route exact path="/" component={CityView} />
+          <Route exact path="/" component={Login} />
           <Route exact path="/Map" component={Map} />
           
 
