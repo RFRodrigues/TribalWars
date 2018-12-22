@@ -51,7 +51,7 @@
 .loginForm  {
   max-width: 500px;
   border: white 1px solid;
-  border-radius: 20px;
+  border-radius: 5px;
   box-shadow: 0 4px 10px 4px;
   background-color: rgba(58, 58, 74, 0.6);
 }
@@ -79,3 +79,8 @@
   max-height: 25px;
 }
 
+.modalHead{
+  background-color: white;
+  width: 50vw;
+  height: 50vh;
+}
