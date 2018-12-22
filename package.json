@@ -14,6 +14,7 @@
     "react-dom": "^16.3.2",
     "react-loader": "^2.4.5",
     "react-player": "^1.6.6",
+    "react-responsive-modal": "^3.5.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "^2.1.1",
     "reactable": "^1.1.0",
