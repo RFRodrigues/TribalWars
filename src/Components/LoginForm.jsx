@@ -23,7 +23,8 @@ class LoginForm extends React.Component {
     super(props, context);
 
     this.state = {
-
+      email: "",
+      password: ""
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -32,6 +33,7 @@ class LoginForm extends React.Component {
 
   handleChange(e) {
     this.setState({ [e.target.name]: e.target.value });
+
   }
 
 
@@ -44,16 +46,34 @@ class LoginForm extends React.Component {
 
   handleSubmit() {
 
-
-    var db = firebase.database().ref('/');
-    db.on('value', function (snapshot) {
-      var users = snapshot.val().Users;
-      console.log(users)
-
-    });
-
+    this.verifyUser();
 
   }
+
+
+  //verifca se o utilizador existe e se a password coincide com o email
+  verifyUser() {
+
+    var db = firebase.database().ref('/');
+    db.on('value', (snapshot) => {
+      var users = snapshot.val().Users;
+      for (var i = 0; i < users.length; i++) {
+        if (users[i].Username === this.state.email) {
+          if (users[i].Password === this.state.password) {
+            console.log("Dados corretos -> Login");
+          }
+          else {
+            console.log("Email/Password não coincidem");
+          }
+        }
+        else {
+          console.log("O utilizador não existe");
+        }
+      }
+    });
+  }
+
+
 
   render() {
     return (
@@ -64,7 +84,7 @@ class LoginForm extends React.Component {
               Email
           </Col>
             <Col sm={10}>
-              <FormControl type="email" placeholder="Email" />
+              <FormControl name="email" value={this.state.email} onChange={this.handleChange} type="email" placeholder="Email" />
             </Col>
           </FormGroup>
 
@@ -73,7 +93,7 @@ class LoginForm extends React.Component {
               Password
           </Col>
             <Col sm={10}>
-              <FormControl type="password" placeholder="Password" />
+              <FormControl name="password" value={this.state.password} onChange={this.handleChange} type="password" placeholder="Password" />
             </Col>
           </FormGroup>
 
