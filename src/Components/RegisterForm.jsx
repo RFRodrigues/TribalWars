@@ -11,6 +11,7 @@ class RegisterForm extends React.Component {
     super(props, context);
 
     this.state = {
+      nickname: "",
       email: "",
       password: ""
     };
@@ -34,31 +35,24 @@ class RegisterForm extends React.Component {
 
   handleSubmit() {
 
-    this.verifyUser();
+    
+
+    //this.verifyUserExists();
+
+    firebase.database().ref('/Users').push({
+      userID: 1,
+      username: this.state.nickname,
+      email: this.state.email,
+      password : this.state.password
+    });
 
   }
 
 
   //verifca se o utilizador existe e se a password coincide com o email
-  verifyUser() {
+  verifyUserExists() {
 
-    var db = firebase.database().ref('/');
-    db.on('value', (snapshot) => {
-      var users = snapshot.val().Users;
-      for (var i = 0; i < users.length; i++) {
-        if (users[i].Username === this.state.email) {
-          if (users[i].Password === this.state.password) {
-            console.log("Dados corretos -> Login");
-          }
-          else {
-            console.log("Email/Password não coincidem");
-          }
-        }
-        else {
-          console.log("O utilizador não existe");
-        }
-      }
-    });
+    
   }
 
 
@@ -67,7 +61,7 @@ class RegisterForm extends React.Component {
     return (
       <div className="backdrop">
         <Form horizontal>
-        <FormGroup controlId="formHorizontalNickName">
+          <FormGroup controlId="formHorizontalNickName">
             <Col componentClass={ControlLabel} sm={2}>
               Nickname
           </Col>

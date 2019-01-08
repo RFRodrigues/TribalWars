@@ -3,6 +3,7 @@ import { FormControl, FormGroup, ControlLabel, HelpBlock, Checkbox, Radio, Butto
 import './App.css';
 import PropTypes from 'prop-types';
 import firebase from "firebase";
+import CityView from './CityView';
 
 var config = {
   apiKey: "AIzaSyBbGn-CM2XXJAmhkTERlsGDRyYryij9D4g",
@@ -54,16 +55,20 @@ class LoginForm extends React.Component {
   //verifca se o utilizador existe e se a password coincide com o email
   verifyUser() {
 
+    
+
     var db = firebase.database().ref('/');
     db.on('value', (snapshot) => {
-      var users = snapshot.val().Users;
+      var users = snapshot.val();
       for (var i = 0; i < users.length; i++) {
         if (users[i].Username === this.state.email) {
           if (users[i].Password === this.state.password) {
             console.log("Dados corretos -> Login");
+            return <CityView/>;
           }
           else {
             console.log("Email/Password não coincidem");
+            return;
           }
         }
         else {
