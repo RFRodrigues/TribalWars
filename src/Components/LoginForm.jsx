@@ -4,6 +4,8 @@ import './App.css';
 import PropTypes from 'prop-types';
 import firebase from "firebase";
 import CityView from './CityView';
+import { Link } from 'react-router-dom'
+
 
 var config = {
   apiKey: "AIzaSyBbGn-CM2XXJAmhkTERlsGDRyYryij9D4g",
@@ -52,7 +54,7 @@ class LoginForm extends React.Component {
   }
 
 
-  //verifca se o utilizador existe e se a password coincide com o email
+  //verifica se o utilizador existe e se a password coincide com o email
   verifyUser() {
 
     
@@ -60,11 +62,14 @@ class LoginForm extends React.Component {
     var db = firebase.database().ref('/');
     db.on('value', (snapshot) => {
       var users = snapshot.val();
-      for (var i = 0; i < users.length; i++) {
-        if (users[i].Username === this.state.email) {
-          if (users[i].Password === this.state.password) {
+      console.log(users);
+      console.log(users.length)
+      for (var i = 0; i < users.Users.length; i++) {
+        console.log()
+        if (users.Users[i].email === this.state.email) {
+          if (users.Users[i].password === this.state.password) {
             console.log("Dados corretos -> Login");
-            return <CityView/>;
+            return ;
           }
           else {
             console.log("Email/Password não coincidem");
@@ -110,7 +115,8 @@ class LoginForm extends React.Component {
 
           <FormGroup>
             <Col smOffset={2} sm={10}>
-              <Button onClick={() => this.handleSubmit()}>Sign in</Button>
+              {<Button onClick={() => this.handleSubmit()}>Sign in</Button>}
+              
             </Col>
           </FormGroup>
         </Form>

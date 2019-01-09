@@ -37,6 +37,7 @@ class CityView extends Component {
 
     return (
       <div id="city">
+        ola
       
       </div>
     );

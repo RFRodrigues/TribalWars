@@ -66,7 +66,8 @@ export default class Example extends React.Component {
           </Navbar>
 
           <Route exact path="/" component={Login} />
-          <Route exact path="/Map" component={Map} />
+          <Route path="/Map" component={Map} />
+          <Route path="/CityView" component={CityView} />
           
 
 
