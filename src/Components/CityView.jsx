@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Grid, Row, Col, Table, Dropdown, MenuItem, Panel, Modal, Button, FormGroup, Form, ControlLabel, FormControl } from 'react-bootstrap';
+import Building from './Building';
 
 
 
@@ -37,7 +38,7 @@ class CityView extends Component {
 
     return (
       <div id="city">
-        ola
+        <Building/>
       
       </div>
     );
