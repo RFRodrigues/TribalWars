@@ -22,16 +22,15 @@ firebase.initializeApp(config);
 
 class LoginForm extends React.Component {
 
-  constructor(props, context) {
-    super(props, context);
+  constructor() {
+    super();
 
     this.state = {
-      email: "",
+      username: "",
       password: ""
     };
 
     this.handleChange = this.handleChange.bind(this);
-
   }
 
   handleChange(e) {
@@ -49,39 +48,37 @@ class LoginForm extends React.Component {
 
   handleSubmit() {
 
-    this.verifyUser();
-
-  }
-
-
-  //verifica se o utilizador existe e se a password coincide com o email
-  verifyUser() {
-
-    
-
-    var db = firebase.database().ref('/');
+    var db = firebase.database().ref('/Users');
     db.on('value', (snapshot) => {
       var users = snapshot.val();
-      console.log(users);
-      console.log(users.length)
-      for (var i = 0; i < users.Users.length; i++) {
-        console.log()
-        if (users.Users[i].email === this.state.email) {
-          if (users.Users[i].password === this.state.password) {
-            console.log("Dados corretos -> Login");
-            return ;
+      for (var user in users) {
+        if (users.hasOwnProperty(user)) {
+          console.log(users[user].username);
+          console.log(this.state.username);
+          if (users[user].email || users[user].username === this.state.username) {
+            if (users[user].password === this.state.password) {
+              console.log("Dados corretos -> Login");
+              window.location = '/cityView';
+              break;
+            }
+            else {
+              console.log("Email/Password não coincidem");
+            }
           }
           else {
-            console.log("Email/Password não coincidem");
-            return;
+            console.log("O utilizador não existe");
           }
-        }
-        else {
-          console.log("O utilizador não existe");
         }
       }
     });
+
+
+
   }
+
+
+
+
 
 
 
@@ -89,12 +86,12 @@ class LoginForm extends React.Component {
     return (
       <div className="backdrop">
         <Form horizontal>
-          <FormGroup controlId="formHorizontalEmail">
+          <FormGroup controlId="formHorizontalUsername">
             <Col componentClass={ControlLabel} sm={2}>
-              Email
+              Email/Username
           </Col>
             <Col sm={10}>
-              <FormControl name="email" value={this.state.email} onChange={this.handleChange} type="email" placeholder="Email" />
+              <FormControl name="username" value={this.state.username} onChange={this.handleChange} type="text" placeholder="Email/Username" />
             </Col>
           </FormGroup>
 
@@ -116,7 +113,7 @@ class LoginForm extends React.Component {
           <FormGroup>
             <Col smOffset={2} sm={10}>
               {<Button onClick={() => this.handleSubmit()}>Sign in</Button>}
-              
+
             </Col>
           </FormGroup>
         </Form>
