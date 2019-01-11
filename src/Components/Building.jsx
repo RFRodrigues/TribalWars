@@ -21,6 +21,10 @@ class Building extends Component {
         this.setState({ [e.target.name]: e.target.value });
     }
 
+    componentDidMount(){
+        console.log(this.props)
+    }
+
 
     onCloseModal = () => {
         this.setState({ open: false });

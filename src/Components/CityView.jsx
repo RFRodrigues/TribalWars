@@ -38,7 +38,9 @@ class CityView extends Component {
 
     return (
       <div id="city">
-        <Building/>
+        <Building nivel={10} nome={"Edificio Principal"}/>
+
+        <Building nivel={2} nome={"Quartel"}/>
       
       </div>
     );
