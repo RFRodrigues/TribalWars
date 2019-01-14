@@ -33,6 +33,8 @@
   to { transform: rotate(360deg); }
 }
 
+
+
 .loginView{
   background-image: url("../Components/resources/images/splashScreen.jpg");
   background-repeat: no-repeat;
@@ -43,9 +45,7 @@
 }
 
 .loginContainer{
-  align-content: center;
   padding-top: 25vh;
-  padding-left: 38vw;
 }
 
 .loginForm  {
@@ -54,6 +54,7 @@
   border-radius: 5px;
   box-shadow: 0 4px 10px 4px;
   background-color: rgba(58, 58, 74, 0.6);
+  margin: 0 auto;
 }
 
 .loginForm h1{
@@ -87,4 +88,21 @@
 
 .backdrop{
   width: 300px;
+}
+
+#city{
+  background-image: url('./resources/images/citylvl0.png');
+  height: 500px;
+  background-repeat: no-repeat;
+  width: 680px;
+  margin: 0 auto;
+}
+
+#cityView{
+  background-color: burlywood;
+}
+
+.building > button{
+  -webkit-appearance: listitem !important;
+  width: 150px;
 }

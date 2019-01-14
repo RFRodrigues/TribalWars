@@ -23,7 +23,7 @@ class CityView extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
-  
+
 
 
 
@@ -37,11 +37,13 @@ class CityView extends Component {
   render() {
 
     return (
-      <div id="city">
-        <Building nivel={10} nome={"Edificio Principal"}/>
+      <div id="cityView">
+        <div id="city">
+          <Building nivel={10} nome={"Edificio Principal"} imagem={"Main1.png"} />
 
-        <Building nivel={2} nome={"Quartel"}/>
-      
+          <Building nivel={2} nome={"Quartel"} />
+
+        </div>
       </div>
     );
   }

@@ -53,11 +53,8 @@ class LoginForm extends React.Component {
       var users = snapshot.val();
       for (var user in users) {
         if (users.hasOwnProperty(user)) {
-          console.log(users[user].username);
-          console.log(this.state.username);
           if (users[user].email || users[user].username === this.state.username) {
             if (users[user].password === this.state.password) {
-              console.log("Dados corretos -> Login");
               window.location = '/cityView';
               break;
             }
@@ -71,15 +68,7 @@ class LoginForm extends React.Component {
         }
       }
     });
-
-
-
   }
-
-
-
-
-
 
 
   render() {

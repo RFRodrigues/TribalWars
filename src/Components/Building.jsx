@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import BuildingModal from './BuildingModal';
 import { ButtonToolbar, Button, toggleModal } from 'react-bootstrap';
 
+
 class Building extends Component {
     constructor(props, context) {
         super(props, context);
@@ -21,9 +22,14 @@ class Building extends Component {
         this.setState({ [e.target.name]: e.target.value });
     }
 
-    componentDidMount(){
-        console.log(this.props)
+    componentWillMount(){
+        
+
+        this.setState({imagem: require("./resources/images/Main1.png")});
+        
     }
+
+    
 
 
     onCloseModal = () => {
@@ -33,14 +39,16 @@ class Building extends Component {
 
     render() {
         const { open } = this.state;
+
+        console.log(this.state.imagem);
+
         return (
-            <div className="building">
-                <Button onClick={() => this.setState({ open: true })}
+            <div className="building" >
+                <Button  onClick={() => this.setState({ open: true })}
                     bsSize="large"
-                    className="btnRegistar"
+                    className="btnBuilding"
                     block>
-                    <img src={require('./resources/images/register.png')}
-                        className="loginImages" /> 
+                    <img src={this.state.imagem}/> 
                 </Button>
                 <Modal open={open} onClose={this.onCloseModal} center>
                     <BuildingModal />
