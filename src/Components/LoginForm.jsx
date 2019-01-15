@@ -51,6 +51,8 @@ class LoginForm extends React.Component {
 
   handleSubmit() {
 
+    this.setState({submited: true}, () => console.log(this.state.submited));
+
     var db = firebase.database().ref('/Users');
     db.on('value', (snapshot) => {
       var users = snapshot.val();
