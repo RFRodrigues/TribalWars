@@ -27,7 +27,10 @@ class LoginForm extends React.Component {
 
     this.state = {
       username: "",
-      password: ""
+      password: "",
+      submited: false,
+      userPwError: "",
+      acctError: ""
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -59,7 +62,7 @@ class LoginForm extends React.Component {
               break;
             }
             else {
-              console.log("Email/Password não coincidem");
+              this.setState({usernameError: "Email/Password não coincidem"});
             }
           }
           else {
@@ -81,6 +84,7 @@ class LoginForm extends React.Component {
           </Col>
             <Col sm={10}>
               <FormControl name="username" value={this.state.username} onChange={this.handleChange} type="text" placeholder="Email/Username" />
+              <span>{this.state.submited && this.state.username == null ? this.state.userPwError: ""}</span>
             </Col>
           </FormGroup>
 
