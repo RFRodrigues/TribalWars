@@ -23,13 +23,10 @@ class Building extends Component {
     }
 
     componentWillMount(){
-        
 
-        this.setState({imagem: require("./resources/images/Main1.png")});
+        localStorage.getItem(this.props.nome);
         
     }
-
-    
 
 
     onCloseModal = () => {

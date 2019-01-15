@@ -46,6 +46,26 @@ class RegisterForm extends React.Component {
       password : this.state.password
     });
 
+    const template = "template_H0XAbhaM";
+
+    this.sendFeedback(
+      template,
+      this.state.nickname,
+      "hello")
+  }
+
+  sendFeedback (templateId,receiverEmail, message) {
+    window.emailjs.send(
+      'gmail',
+      templateId,
+      {
+        receiverEmail,
+        message
+      })
+      // Handle errors here however you like, or use a React error boundary
+      .catch(err => console.error('Failed to send feedback. Error: ', err))
+
+
   }
 
 

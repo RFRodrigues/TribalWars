@@ -23,6 +23,10 @@ class CityView extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
+  componentWillMount(){
+    localStorage.setItem('EdificioPrincipal', require("./resources/images/Main1.png"));
+  }
+
 
 
 
@@ -39,7 +43,7 @@ class CityView extends Component {
     return (
       <div id="cityView">
         <div id="city">
-          <Building nivel={10} nome={"Edificio Principal"} imagem={"Main1.png"} />
+          <Building nivel={10} nome={"EdificioPrincipal"}/>
 
           <Building nivel={2} nome={"Quartel"} />
 

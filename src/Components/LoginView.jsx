@@ -6,12 +6,16 @@ import LoginForm from './LoginForm';
 import RegisterForm from './RegisterForm';
 import { ButtonToolbar, Button, toggleModal } from 'react-bootstrap';
 
+
+
 class LoginView extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = { open: false, login: false, register: false};
     this.handleChange = this.handleChange.bind(this);
   }
+
+  
 
   handleChange(e) {
     this.setState({ [e.target.name]: e.target.value });
@@ -25,7 +29,10 @@ class LoginView extends Component {
 
   render() {
     const { open } = this.state;
+
+    
     return (
+      
       <div className="loginView">
         <div className="loginContainer">
           <div className="loginForm">
