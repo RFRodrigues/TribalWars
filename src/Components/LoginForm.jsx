@@ -94,6 +94,7 @@ class LoginForm extends React.Component {
           </Col>
             <Col sm={10}>
               <FormControl name="password" value={this.state.password} onChange={this.handleChange} type="password" placeholder="Password" />
+              <span>{this.state.submited && this.state.password == "" ? "Password inválida": ""}</span>
             </Col>
           </FormGroup>
 
