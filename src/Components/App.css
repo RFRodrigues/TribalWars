@@ -106,3 +106,7 @@
   -webkit-appearance: listitem !important;
   width: 150px;
 }
+
+.error{
+  color: red;
+}

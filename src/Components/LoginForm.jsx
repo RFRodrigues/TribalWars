@@ -54,6 +54,9 @@ class LoginForm extends React.Component {
     var db = firebase.database().ref('/Users');
     db.on('value', (snapshot) => {
       var users = snapshot.val();
+      console.log(users);
+      console.log(this.state.username);
+      console.log(this.state.password);
       for (var user in users) {
         if (users.hasOwnProperty(user)) {
           if (users[user].email || users[user].username === this.state.username) {
@@ -84,7 +87,7 @@ class LoginForm extends React.Component {
           </Col>
             <Col sm={10}>
               <FormControl name="username" value={this.state.username} onChange={this.handleChange} type="text" placeholder="Email/Username" />
-              <span>{this.state.submited && this.state.username == "" ? "Nome de utilizador inválido": ""}</span>
+              <span className="error">{this.state.submited && this.state.username == "" ? "Nome de utilizador inválido": ""}</span>
             </Col>
           </FormGroup>
 
@@ -94,7 +97,7 @@ class LoginForm extends React.Component {
           </Col>
             <Col sm={10}>
               <FormControl name="password" value={this.state.password} onChange={this.handleChange} type="password" placeholder="Password" />
-              <span>{this.state.submited && this.state.password == "" ? "Password inválida": ""}</span>
+              <span className="error">{this.state.submited && this.state.password == "" ? "Password inválida": ""}</span>
             </Col>
           </FormGroup>
 

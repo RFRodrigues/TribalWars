@@ -29,7 +29,7 @@ class Building extends Component {
     }
 
 
-    onCloseModal = () => {
+    onCloseModal = function () {
         this.setState({ open: false });
     };
 
