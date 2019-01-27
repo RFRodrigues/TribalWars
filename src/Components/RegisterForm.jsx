@@ -3,7 +3,12 @@ import { FormControl, FormGroup, ControlLabel, HelpBlock, Checkbox, Radio, Butto
 import './App.css';
 import PropTypes from 'prop-types';
 import firebase from "firebase";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+const initialState = {
+  /* etc */
+};
 
 class RegisterForm extends React.Component {
 
@@ -13,11 +18,18 @@ class RegisterForm extends React.Component {
     this.state = {
       nickname: "",
       email: "",
-      password: ""
+      password: "",
+      passwordConfirm: "",
+      emailError: false,
+      nicknameError: false
+
     };
 
-    this.handleChange = this.handleChange.bind(this);
 
+
+    this.handleChange = this.handleChange.bind(this);
+    this.verifyPasswords = this.verifyPasswords.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(e) {
@@ -36,25 +48,48 @@ class RegisterForm extends React.Component {
   handleSubmit() {
 
     
+    if (this.verifyPasswords()) {
+      var db = firebase.database().ref('/Users');
+      db.once('value', (snapshot) => {
+        var users = snapshot.val();
+        if (users != null) {
+          for (var user in users) {
+            if (users.hasOwnProperty(user)) {
+              if (users[user].email === this.state.email || users[user].username === this.state.nickname) {
+                toast.error("Email ou Nickname já existem!");
+                return;
+              }
+            }
+          }
+        }
+        firebase.database().ref('/Users').push({
+          userID: 1,
+          username: this.state.nickname,
+          email: this.state.email,
+          password: this.state.password
+        });
+        //toast.success("Registo efetuado com sucesso!");
+        window.location = '/cityView';
+      });
 
-    //this.verifyUserExists();
 
-    firebase.database().ref('/Users').push({
-      userID: 1,
-      username: this.state.nickname,
-      email: this.state.email,
-      password : this.state.password
-    });
+
+
+
+    }
+
 
     const template = "template_H0XAbhaM";
 
-    this.sendFeedback(
+    /*this.sendFeedback(
       template,
       this.state.nickname,
-      "hello")
+      "hello")*/
+
+
   }
 
-  sendFeedback (templateId,receiverEmail, message) {
+  sendFeedback(templateId, receiverEmail, message) {
     window.emailjs.send(
       'gmail',
       templateId,
@@ -62,17 +97,17 @@ class RegisterForm extends React.Component {
         receiverEmail,
         message
       })
-      // Handle errors here however you like, or use a React error boundary
       .catch(err => console.error('Failed to send feedback. Error: ', err))
 
 
   }
 
 
-  //verifca se o utilizador existe e se a password coincide com o email
-  verifyUserExists() {
-
-    
+  verifyPasswords() {
+    if (this.state.password === this.state.passwordConfirm && this.state.password != "") {
+      return true;
+    }
+    return false;
   }
 
 
@@ -80,6 +115,7 @@ class RegisterForm extends React.Component {
   render() {
     return (
       <div className="backdrop">
+      <ToastContainer />
         <Form horizontal>
           <FormGroup controlId="formHorizontalNickName">
             <Col componentClass={ControlLabel} sm={2}>
@@ -87,6 +123,7 @@ class RegisterForm extends React.Component {
           </Col>
             <Col sm={10}>
               <FormControl name="nickname" value={this.state.nickname} onChange={this.handleChange} type="text" placeholder="Nickname" />
+              <span className="error">{this.state.submited && this.state.nicknameError ? "Nome de utilizador inválido" : ""}</span>
             </Col>
           </FormGroup>
 
@@ -96,6 +133,7 @@ class RegisterForm extends React.Component {
           </Col>
             <Col sm={10}>
               <FormControl name="email" value={this.state.email} onChange={this.handleChange} type="email" placeholder="Email" />
+              <span className="error">{this.state.submited && this.state.emailError ? "Email de utilizador inválido" : ""}</span>
             </Col>
           </FormGroup>
 
@@ -105,8 +143,22 @@ class RegisterForm extends React.Component {
           </Col>
             <Col sm={10}>
               <FormControl name="password" value={this.state.password} onChange={this.handleChange} type="password" placeholder="Password" />
+              <span className="error">{this.state.submited && this.state.password == "" ? "Password de utilizador inválido" : ""}</span>
+
             </Col>
           </FormGroup>
+
+          <FormGroup controlId="formHorizontalPasswordConfirm">
+            <Col componentClass={ControlLabel} sm={2}>
+              Confirm Password
+          </Col>
+            <Col sm={10}>
+              <FormControl name="passwordConfirm" value={this.state.passwordConfirm} onChange={this.handleChange} type="password" placeholder="Confirme a password" />
+              <span className="error">{this.state.submited && this.state.passwordConfirm == "" ? "Password de utilizador inválido" : ""}</span>
+
+            </Col>
+          </FormGroup>
+
 
           <FormGroup>
             <Col smOffset={2} sm={10}>

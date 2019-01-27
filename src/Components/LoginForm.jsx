@@ -4,7 +4,9 @@ import './App.css';
 import PropTypes from 'prop-types';
 import firebase from "firebase";
 import CityView from './CityView';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 var config = {
@@ -35,7 +37,7 @@ class LoginForm extends React.Component {
   }
 
   handleChange(e) {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({ [e.target.name]: e.target.value, submited: false });
 
   }
 
@@ -46,17 +48,14 @@ class LoginForm extends React.Component {
 
 
 
-
+  //needs fix (toast tem que ser fora do ciclo)
   handleSubmit() {
 
-    this.setState({submited: true}, () => console.log(this.state.submited));
+    this.setState({ submited: true }, () => console.log(this.state.submited));
 
     var db = firebase.database().ref('/Users');
     db.on('value', (snapshot) => {
       var users = snapshot.val();
-      console.log(users);
-      console.log(this.state.username);
-      console.log(this.state.password);
       for (var user in users) {
         if (users.hasOwnProperty(user)) {
           if (users[user].email || users[user].username === this.state.username) {
@@ -65,11 +64,11 @@ class LoginForm extends React.Component {
               break;
             }
             else {
-              console.log("Email/Password não coincidem");
+              toast.error("Email/Password não coincidem");
             }
           }
           else {
-            console.log("O utilizador não existe");
+            toast.error("O utilizador não existe");
           }
         }
       }
@@ -80,6 +79,7 @@ class LoginForm extends React.Component {
   render() {
     return (
       <div className="backdrop">
+        <ToastContainer />
         <Form horizontal>
           <FormGroup controlId="formHorizontalUsername">
             <Col componentClass={ControlLabel} sm={2}>
@@ -87,7 +87,7 @@ class LoginForm extends React.Component {
           </Col>
             <Col sm={10}>
               <FormControl name="username" value={this.state.username} onChange={this.handleChange} type="text" placeholder="Email/Username" />
-              <span className="error">{this.state.submited && this.state.username == "" ? "Nome de utilizador inválido": ""}</span>
+              <span className="error">{this.state.submited && this.state.username == "" ? "Nome de utilizador inválido" : ""}</span>
             </Col>
           </FormGroup>
 
@@ -97,7 +97,7 @@ class LoginForm extends React.Component {
           </Col>
             <Col sm={10}>
               <FormControl name="password" value={this.state.password} onChange={this.handleChange} type="password" placeholder="Password" />
-              <span className="error">{this.state.submited && this.state.password == "" ? "Password inválida": ""}</span>
+              <span className="error">{this.state.submited && this.state.password == "" ? "Password inválida" : ""}</span>
             </Col>
           </FormGroup>
 

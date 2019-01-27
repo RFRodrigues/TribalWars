@@ -24,20 +24,18 @@ class Building extends Component {
 
     componentWillMount(){
 
-        localStorage.getItem(this.props.nome);
+        this.setState({imagem: localStorage.getItem(this.props.nome)});
         
     }
 
 
-    onCloseModal = function () {
+    onCloseModal = () => {
         this.setState({ open: false });
     };
 
 
     render() {
         const { open } = this.state;
-
-        console.log(this.state.imagem);
 
         return (
             <div className="building" >
