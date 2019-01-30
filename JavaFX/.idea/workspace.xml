@@ -3,29 +3,37 @@
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
       <artifact name="TribalWars" />
+      <artifact name="TribalWars.jar" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="de54dc9c-8d35-4f71-b799-aab12ea360ec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/TribalWars.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/TribalWars_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaFX.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tribalWarsApp/MenuChanger.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tribalWarsApp/TribalWarsApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tribalWarsApp/TribalWarsMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tribalWarsControllers/TribalWarsMenuController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Assets/CSS/tribal_wars_menu.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Assets/FONT/BLKCHCRY.TTF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Assets/IMG/background.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Assets/IMG/title.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Assets/IMG/title.psd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Assets/SOUND/titleMusic.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/FXML/TribalWarsApp.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/FXML/TribalWarsMenu.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Utility/MediaPlayer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tribalWarsControllers/TribalWarsAppController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Assets/IMG/Btns.psd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Assets/IMG/TownView.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Assets/IMG/appcover.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Assets/IMG/btnExit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Assets/IMG/btnPlay.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Assets/IMG/credits.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Assets/IMG/credits.psd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Assets/IMG/menu_style.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Assets/IMG/menu_style.psd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TribalWars/JavaFX.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/TribalWars/JavaFX.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TribalWars/JavaFX.jnlp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/TribalWars/JavaFX.jnlp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TribalWars_jar/TribalWars.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/TribalWars_jar/TribalWars.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tribalWarsApp/TribalWarsApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tribalWarsApp/TribalWarsApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tribalWarsApp/TribalWarsMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tribalWarsApp/TribalWarsMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tribalWarsControllers/TribalWarsMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tribalWarsControllers/TribalWarsMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/TribalWarsApp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/TribalWarsApp.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/TribalWarsMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/TribalWarsMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/FXML/TribalWarsApp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/FXML/TribalWarsApp.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/FXML/TribalWarsMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/FXML/TribalWarsMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tribalWarsApp/TribalWarsApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tribalWarsApp/TribalWarsApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tribalWarsApp/TribalWarsMenu$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tribalWarsApp/TribalWarsMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tribalWarsApp/TribalWarsMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tribalWarsControllers/TribalWarsMenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tribalWarsControllers/TribalWarsMenuController.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -39,33 +47,40 @@
     <session id="1521900646">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
-          <entry key="project.open.time.5" value="2" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.closed" value="2" />
+          <entry key="project.open.time.5" value="3" />
+          <entry key="project.open.time.6" value="1" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="MF" value="3" />
           <entry key="css" value="1" />
-          <entry key="java" value="3" />
+          <entry key="fxml" value="5" />
+          <entry key="java" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="1" />
-          <entry key="JAVA" value="3" />
+          <entry key="JAVA" value="17" />
           <entry key="Manifest" value="3" />
+          <entry key="XML" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="61" />
+          <entry key="fxml" value="6" />
+          <entry key="java" value="688" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
+          <entry key="JAVA" value="688" />
           <entry key="PLAIN_TEXT" value="61" />
+          <entry key="XML" value="6" />
         </counts>
       </usages-collector>
     </session>
@@ -73,24 +88,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/tribalWarsApp/MenuChanger.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/tribalWarsApp/TribalWarsApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+            <state relative-caret-position="510">
+              <caret line="40" column="51" selection-start-line="40" selection-start-column="51" selection-end-line="40" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -101,39 +102,35 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/tribalWarsApp/TribalWarsMenu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="49" column="28" selection-start-line="49" selection-start-column="28" selection-end-line="49" selection-end-column="28" />
+            <state relative-caret-position="187">
+              <caret line="18" selection-start-line="18" selection-end-line="18" selection-end-column="24" />
               <folding>
-                <element signature="e#677#678#0" expanded="true" />
-                <element signature="e#753#754#0" expanded="true" />
-                <element signature="e#1115#1116#0" expanded="true" />
-                <element signature="e#1181#1182#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/target/META-INF/MANIFEST.MF">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/target/generated-sources/META-INF/MANIFEST.MF">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/Assets/CSS/tribal_wars_menu.css">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/src/main/java/tribalWarsControllers/TribalWarsMenuController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="32" column="55" selection-start-line="32" selection-start-column="55" selection-end-line="32" selection-end-column="55" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -142,8 +139,13 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/main/java/parabellumApp/TribalWarsApplication.java" />
-        <option value="$PROJECT_DIR$/src/main/java/tribalWarsApp/TribalWarsApplication.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tribalWarsControllers/TribalWarsAppController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/FXML/TribalWarsMenu.fxml" />
+        <option value="$PROJECT_DIR$/src/main/resources/FXML/TribalWarsApp.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/tribalWarsApp/TribalWarsMenu.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Utility/MediaPlayer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tribalWarsApp/TribalWarsApplication.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tribalWarsControllers/TribalWarsMenuController.java" />
       </list>
     </option>
   </component>
@@ -155,7 +157,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="630" />
+    <option name="x" value="-7" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
@@ -165,7 +167,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -287,18 +289,24 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548870810865" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../JavaReposClass" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548884731407" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../EduMaster" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="tribalWarsControllers" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\F0RCEFI3LD\Desktop\TribalWars\JavaFX\target\classes" />
+      <recent name="C:\Users\F0RCEFI3LD\Desktop\TribalWars\JavaFX\target\generated-sources" />
+      <recent name="C:\Users\F0RCEFI3LD\Desktop\TribalWars\JavaFX\target" />
       <recent name="C:\Users\F0RCEFI3LD\Desktop\TribalWars\JavaFX\src\main\resources" />
       <recent name="C:\Users\F0RCEFI3LD\Desktop\TribalWars\JavaFX\src\main\java" />
     </key>
@@ -351,7 +359,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25586355" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26119402" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -360,8 +368,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.329718" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.329718" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3991323" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -393,32 +401,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/tribalWarsApp/TribalWarsApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/Assets/CSS/tribal_wars_menu.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/tribalWarsApp/TribalWarsMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="49" column="28" selection-start-line="49" selection-start-column="28" selection-end-line="49" selection-end-column="28" />
-          <folding>
-            <element signature="e#677#678#0" expanded="true" />
-            <element signature="e#753#754#0" expanded="true" />
-            <element signature="e#1115#1116#0" expanded="true" />
-            <element signature="e#1181#1182#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/target/META-INF/MANIFEST.MF">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -427,6 +409,95 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/Assets/CSS/tribal_wars_menu.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="1" lean-forward="true" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/javafx/stage/Window.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="101" selection-start-line="101" selection-end-line="101" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="1773" selection-start-line="1773" selection-end-line="1773" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/FXML/TribalWarsMenu.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1054">
+          <caret line="9" column="343" lean-forward="true" selection-start-line="9" selection-start-column="343" selection-end-line="9" selection-end-column="343" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tribalWarsControllers/TribalWarsAppController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Utility/MediaPlayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="79" lean-forward="true" selection-start-line="19" selection-start-column="79" selection-end-line="19" selection-end-column="79" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#440#441#0" expanded="true" />
+            <element signature="e#474#475#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/FXML/TribalWarsApp.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tribalWarsApp/TribalWarsApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="40" column="51" selection-start-line="40" selection-start-column="51" selection-end-line="40" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tribalWarsApp/TribalWarsMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="18" selection-start-line="18" selection-end-line="18" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tribalWarsControllers/TribalWarsMenuController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="32" column="55" selection-start-line="32" selection-start-column="55" selection-end-line="32" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">
