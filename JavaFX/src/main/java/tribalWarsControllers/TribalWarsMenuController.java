@@ -1,13 +1,20 @@
 package tribalWarsControllers;
 
-import Utility.MediaPlayer;
+import Utility.TBWMediaPlayer;
+import Utility.TBWPropertiesManager;
 import javafx.application.Platform;
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Slider;
+import javafx.scene.layout.VBox;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import tribalWarsApp.TribalWarsApplication;
-import tribalWarsApp.TribalWarsMenu;
+import tribalWarsApp.TribalWarsOptionsMenu;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -18,24 +25,70 @@ public class TribalWarsMenuController implements Initializable {
     private Button exitBtn;
     @FXML
     private Button playBtn;
+    @FXML
+    private Button btnOptions;
+    @FXML
+    private VBox mainMenu;
+    @FXML
+    private VBox optionsMenu;
+    @FXML
+    private Button returnToMainMenu;
+    @FXML
+    private Slider volumeSlider;
 
-    private static MediaPlayer mediaPlayer = new MediaPlayer();
+    private MediaPlayer mediaPlayer;
+    private Double volumeLevel;
 
     @FXML
     private void exit() {
         Platform.exit();
     }
 
-    @FXML
-    void play() {
-        TribalWarsMenu.stage.close();
-        mediaPlayer.getMediaPlayer().stop();
+    public void play(javafx.event.ActionEvent actionEvent) {
+        Utility.TBWMediaPlayer.getMediaPlayer().stop();
         new TribalWarsApplication().start(new Stage());
+        Node source = (Node) actionEvent.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
+    }
+
+    @FXML
+    void optionsMenu() {
+        mainMenu.setVisible(false);
+        optionsMenu.setVisible(true);
+    }
+
+    @FXML
+    void returnToMainMenu(){
+        optionsMenu.setVisible(false);
+        mainMenu.setVisible(true);
+    }
+
+    void mediaPlayer(){
+        mediaPlayer = TBWMediaPlayer.getMediaPlayer();
+    }
+
+    void volumeListener(){
+        TBWPropertiesManager propertiesManager = new TBWPropertiesManager();
+        volumeSlider.valueProperty().addListener(observable -> {
+            TBWMediaPlayer.setVolume(volumeSlider.getValue() /100);
+            propertiesManager.setVolumeValues(volumeSlider.getValue() / 100);
+        });
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //TODO check player settings
-        mediaPlayer.playTitle();
+        mainMenu.setVisible(true);
+        optionsMenu.setVisible(false);
+        TBWPropertiesManager readProperties = new TBWPropertiesManager();
+        try {
+            volumeLevel = readProperties.getVolumeValues();
+            volumeSlider.setValue(volumeLevel * 100);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        mediaPlayer();
+        TBWMediaPlayer.playTitle(volumeLevel);
+        volumeListener();
     }
 }
