@@ -20,23 +20,17 @@ class BuildingModal extends React.Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
-
   }
 
   handleChange(e) {
     this.setState({ [e.target.name]: e.target.value });
-
   }
 
 
 
   handleSubmit() {
-
     this.verifyUser();
-
   }
-
-
 
 
   render() {

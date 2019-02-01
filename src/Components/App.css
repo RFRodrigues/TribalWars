@@ -110,3 +110,9 @@
 .error{
   color: red;
 }
+
+.fake-link{
+  cursor:pointer;
+  color:rgb(60, 60, 228);
+  text-decoration:underline;
+}

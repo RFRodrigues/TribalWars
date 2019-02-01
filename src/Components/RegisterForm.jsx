@@ -6,9 +6,6 @@ import firebase from "firebase";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const initialState = {
-  /* etc */
-};
 
 class RegisterForm extends React.Component {
 
@@ -25,8 +22,6 @@ class RegisterForm extends React.Component {
 
     };
 
-
-
     this.handleChange = this.handleChange.bind(this);
     this.verifyPasswords = this.verifyPasswords.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -34,7 +29,6 @@ class RegisterForm extends React.Component {
 
   handleChange(e) {
     this.setState({ [e.target.name]: e.target.value });
-
   }
 
 
@@ -46,8 +40,6 @@ class RegisterForm extends React.Component {
 
 
   handleSubmit() {
-
-    
     if (this.verifyPasswords()) {
       var db = firebase.database().ref('/Users');
       db.once('value', (snapshot) => {
@@ -71,11 +63,6 @@ class RegisterForm extends React.Component {
         //toast.success("Registo efetuado com sucesso!");
         window.location = '/cityView';
       });
-
-
-
-
-
     }
 
 
@@ -98,8 +85,6 @@ class RegisterForm extends React.Component {
         message
       })
       .catch(err => console.error('Failed to send feedback. Error: ', err))
-
-
   }
 
 
@@ -115,7 +100,7 @@ class RegisterForm extends React.Component {
   render() {
     return (
       <div className="backdrop">
-      <ToastContainer />
+        <ToastContainer />
         <Form horizontal>
           <FormGroup controlId="formHorizontalNickName">
             <Col componentClass={ControlLabel} sm={2}>
@@ -126,7 +111,6 @@ class RegisterForm extends React.Component {
               <span className="error">{this.state.submited && this.state.nicknameError ? "Nome de utilizador inválido" : ""}</span>
             </Col>
           </FormGroup>
-
           <FormGroup controlId="formHorizontalEmail">
             <Col componentClass={ControlLabel} sm={2}>
               Email
@@ -136,7 +120,6 @@ class RegisterForm extends React.Component {
               <span className="error">{this.state.submited && this.state.emailError ? "Email de utilizador inválido" : ""}</span>
             </Col>
           </FormGroup>
-
           <FormGroup controlId="formHorizontalPassword">
             <Col componentClass={ControlLabel} sm={2}>
               Password
@@ -144,10 +127,8 @@ class RegisterForm extends React.Component {
             <Col sm={10}>
               <FormControl name="password" value={this.state.password} onChange={this.handleChange} type="password" placeholder="Password" />
               <span className="error">{this.state.submited && this.state.password == "" ? "Password de utilizador inválido" : ""}</span>
-
             </Col>
           </FormGroup>
-
           <FormGroup controlId="formHorizontalPasswordConfirm">
             <Col componentClass={ControlLabel} sm={2}>
               Confirm Password
@@ -155,24 +136,17 @@ class RegisterForm extends React.Component {
             <Col sm={10}>
               <FormControl name="passwordConfirm" value={this.state.passwordConfirm} onChange={this.handleChange} type="password" placeholder="Confirme a password" />
               <span className="error">{this.state.submited && this.state.passwordConfirm == "" ? "Password de utilizador inválido" : ""}</span>
-
             </Col>
           </FormGroup>
-
-
           <FormGroup>
             <Col smOffset={2} sm={10}>
               <Button onClick={() => this.handleSubmit()}>Create Account</Button>
             </Col>
           </FormGroup>
         </Form>
-
-
         <div className="modal">
           {this.props.children}
-
           <div className="footer">
-
           </div>
         </div>
       </div>

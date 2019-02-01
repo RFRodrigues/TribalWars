@@ -4,6 +4,7 @@ import LoginView from './LoginView';
 import CityView from './CityView';
 import 'bootstrap/dist/css/bootstrap.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import ForgotPassword from './ForgotPassword';
 
 
 
@@ -12,12 +13,13 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 
 
-const BasicExample = () => (
+const AppRouter = () => (
   <Router>
     <div>
       <Route exact path="/" component={LoginView} />
       <Route path="/Map" component={Map} />
       <Route path="/CityView" component={CityView} />
+      <Route path="/ForgotPassword" component={ForgotPassword} />
     </div>
   </Router>
 );
@@ -26,4 +28,4 @@ const BasicExample = () => (
 
 
 
-export default BasicExample;
+export default AppRouter;

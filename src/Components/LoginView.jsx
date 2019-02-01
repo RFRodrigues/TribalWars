@@ -4,18 +4,20 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import LoginForm from './LoginForm';
 import RegisterForm from './RegisterForm';
+import ForgotPassword from './ForgotPassword';
 import { ButtonToolbar, Button, toggleModal } from 'react-bootstrap';
+import PubSub from 'pubsub-js';
 
 
 
 class LoginView extends Component {
   constructor(props, context) {
     super(props, context);
-    this.state = { open: false, login: false, register: false};
+    this.state = { open: false, login: false, register: false };
     this.handleChange = this.handleChange.bind(this);
   }
 
-  
+
 
   handleChange(e) {
     this.setState({ [e.target.name]: e.target.value });
@@ -27,12 +29,14 @@ class LoginView extends Component {
   };
 
 
+
+
+
+
   render() {
     const { open } = this.state;
 
-    
     return (
-      
       <div className="loginView">
         <div className="loginContainer">
           <div className="loginForm">
@@ -41,17 +45,15 @@ class LoginView extends Component {
             </br>
             <div className="btnlv">
               <ButtonToolbar>
-                <Button onClick={() => this.setState({open: true, login: true})}
+                <Button onClick={() => this.setState({ open: true, login: true })}
                   bsSize="large"
                   className="btnLogin"
                   block>
-
                   <img src={require('./resources/images/login.png')}
                     className="loginImages" />
                   <h4 className="loginicons">Login</h4>
-
                 </Button>
-                <Button onClick={() => this.setState({open: true, register: true})}
+                <Button onClick={() => this.setState({ open: true, register: true })}
                   bsSize="large"
                   className="btnRegistar"
                   block>
@@ -59,7 +61,7 @@ class LoginView extends Component {
                     className="loginImages" /> <h4 className="loginicons">Registo</h4>
                 </Button>
                 <Modal open={open} onClose={this.onCloseModal} center>
-                  {this.state.login ? <LoginForm/> : <RegisterForm/>}
+                  {this.state.login ? <LoginForm /> : <RegisterForm />}
                 </Modal>
               </ButtonToolbar>
             </div>

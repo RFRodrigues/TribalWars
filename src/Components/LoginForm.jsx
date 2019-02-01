@@ -7,6 +7,7 @@ import CityView from './CityView';
 import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import PubSub from 'pubsub-js';
 
 
 var config = {
@@ -31,9 +32,12 @@ class LoginForm extends React.Component {
       username: "",
       password: "",
       submited: false,
+      teste: false
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.toggleRecover = this.toggleRecover.bind(this);
+    this.handleRecover = this.handleRecover.bind(this);
   }
 
   handleChange(e) {
@@ -43,7 +47,6 @@ class LoginForm extends React.Component {
 
 
   componentWillMount() {
-
   }
 
 
@@ -51,80 +54,136 @@ class LoginForm extends React.Component {
   //needs fix (toast tem que ser fora do ciclo)
   handleSubmit() {
 
-    this.setState({ submited: true }, () => console.log(this.state.submited));
+    var error = "";
+
+    this.setState({ submited: true });
 
     var db = firebase.database().ref('/Users');
-    db.on('value', (snapshot) => {
+    db.once('value', (snapshot) => {
       var users = snapshot.val();
+
       for (var user in users) {
         if (users.hasOwnProperty(user)) {
           if (users[user].email || users[user].username === this.state.username) {
+
             if (users[user].password === this.state.password) {
               window.location = '/cityView';
               break;
             }
             else {
-              toast.error("Email/Password não coincidem");
+              console.log("entrou primeiro");
+              error = "Email/Password não coincidem";
             }
           }
           else {
-            toast.error("O utilizador não existe");
+            console.log("é suposto ser no fim");
+            error = "O utilizador não existe";
           }
         }
       }
+      toast.error(error);
     });
+  }
+
+  toggleRecover() {
+    this.setState({ teste: true });
+  }
+
+  handleRecover(){
+    const template = "template_H0XAbhaM";
+
+    /*this.sendFeedback(
+      template,
+      this.state.nickname,
+      this.generateLink())*/
+  }
+  
+
+  sendFeedback(templateId, receiverEmail, message) {
+    window.emailjs.send(
+      'gmail',
+      templateId,
+      {
+        receiverEmail,
+        message
+      })
+      .catch(err => console.error('Failed to send feedback. Error: ', err))
+  }
+
+  generateLink(){
+    return window.location.href+"/ForgotPassword";
   }
 
 
   render() {
-    return (
-      <div className="backdrop">
-        <ToastContainer />
-        <Form horizontal>
-          <FormGroup controlId="formHorizontalUsername">
-            <Col componentClass={ControlLabel} sm={2}>
-              Email/Username
-          </Col>
-            <Col sm={10}>
-              <FormControl name="username" value={this.state.username} onChange={this.handleChange} type="text" placeholder="Email/Username" />
-              <span className="error">{this.state.submited && this.state.username == "" ? "Nome de utilizador inválido" : ""}</span>
+    if (this.state.teste) {
+      console.log(this.state.teste)
+      return (
+        <div className="backdrop">
+          <ToastContainer />
+          <Form horizontal>
+            <FormGroup controlId="formHorizontalUsername">
+              <Col componentClass={ControlLabel} sm={2}>
+                Email/Username
             </Col>
-          </FormGroup>
-
-          <FormGroup controlId="formHorizontalPassword">
-            <Col componentClass={ControlLabel} sm={2}>
-              Password
-          </Col>
-            <Col sm={10}>
-              <FormControl name="password" value={this.state.password} onChange={this.handleChange} type="password" placeholder="Password" />
-              <span className="error">{this.state.submited && this.state.password == "" ? "Password inválida" : ""}</span>
+              <Col sm={10}>
+                <FormControl name="username" value={this.state.username} onChange={this.handleChange} type="text" placeholder="Email/Username" />
+                <span className="error">{this.state.submited && this.state.username == "" ? "Nome de utilizador inválido" : ""}</span>
+              </Col>
+            </FormGroup>
+            <FormGroup>
+              <Col smOffset={2} sm={10}>
+                <Button onClick={() => this.handleRecover()}>Send Email</Button>
+              </Col>
+            </FormGroup>
+          </Form>
+        </div>
+      );
+    }
+    else {
+      console.log(this.state.teste)
+      return (
+        <div className="backdrop">
+          <ToastContainer />
+          <Form horizontal>
+            <FormGroup controlId="formHorizontalUsername">
+              <Col componentClass={ControlLabel} sm={2}>
+                Email/Username
             </Col>
-          </FormGroup>
-
-          <FormGroup>
-            <Col smOffset={2} sm={10}>
-              <Checkbox>Remember me</Checkbox>
+              <Col sm={10}>
+                <FormControl name="username" value={this.state.username} onChange={this.handleChange} type="text" placeholder="Email/Username" />
+                <span className="error">{this.state.submited && this.state.username == "" ? "Nome de utilizador inválido" : ""}</span>
+              </Col>
+            </FormGroup>
+            <FormGroup controlId="formHorizontalPassword">
+              <Col componentClass={ControlLabel} sm={2}>
+                Password
             </Col>
-          </FormGroup>
-
-          <FormGroup>
-            <Col smOffset={2} sm={10}>
-              {<Button onClick={() => this.handleSubmit()}>Sign in</Button>}
-
-            </Col>
-          </FormGroup>
-        </Form>
-
-
-        <div className="modal">
-          {this.props.children}
-
-          <div className="footer">
-
+              <Col sm={10}>
+                <FormControl name="password" value={this.state.password} onChange={this.handleChange} type="password" placeholder="Password" />
+                <span className="error">{this.state.submited && this.state.password == "" ? "Password inválida" : ""}</span>
+                <span className="fake-link" onClick={this.toggleRecover}>Forgot Password</span>
+              </Col>
+            </FormGroup>
+            <FormGroup>
+              <Col smOffset={2} sm={10}>
+                <Checkbox>Remember me</Checkbox>
+              </Col>
+            </FormGroup>
+            <FormGroup>
+              <Col smOffset={2} sm={10}>
+                <Button onClick={() => this.handleSubmit()}>Sign in</Button>
+              </Col>
+            </FormGroup>
+          </Form>
+          <div className="modal">
+            {this.props.children}
+            <div className="footer">
+            </div>
           </div>
         </div>
-      </div>
-    );
+      );
+    }
   }
 }
 

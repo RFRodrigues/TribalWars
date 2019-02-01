@@ -16,7 +16,6 @@ class CityView extends Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
-
   }
 
   handleChange(e) {
@@ -27,26 +26,13 @@ class CityView extends Component {
     localStorage.setItem('EdificioPrincipal', require("./resources/images/Main1.png"));
   }
 
-
-
-
-
-
-
-
-
-
-
-
   render() {
 
     return (
       <div id="cityView">
         <div id="city">
           <Building nivel={10} nome={"EdificioPrincipal"}/>
-
           <Building nivel={2} nome={"Quartel"} />
-
         </div>
       </div>
     );
