@@ -1,23 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Slider?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" styleClass="backgroundMenu" stylesheets="@../Assets/CSS/tribal_wars_menu.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tribalWarsControllers.TribalWarsMenuController">
    <children>
+      <ImageView fitHeight="800.0" fitWidth="1280.0" pickOnBounds="true">
+         <image>
+            <Image url="@../Assets/IMG/background.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="835.0" fitWidth="1310.0" layoutX="-13.0" layoutY="-16.0" pickOnBounds="true">
+         <image>
+            <Image url="@../Assets/IMG/appcover.png" />
+         </image>
+      </ImageView>
       <BorderPane layoutX="540.0" layoutY="300.0" prefHeight="800.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <VBox alignment="CENTER" layoutX="240.0" layoutY="300.0" prefHeight="200.0" prefWidth="300.0" spacing="10.0" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="150.0">
+                  <VBox alignment="CENTER" layoutX="100.0" layoutY="152.0" prefHeight="609.0" prefWidth="440.0" spacing="10.0" AnchorPane.bottomAnchor="39.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="152.0">
                      <children>
-                        <Button mnemonicParsing="false" prefWidth="150.0" text="Play" />
-                        <Button layoutX="175.0" layoutY="248.0" mnemonicParsing="false" prefWidth="150.0" text="Exit" />
+                        <AnchorPane prefHeight="610.0" prefWidth="380.0" style="-fx-background-color: transparent;">
+                           <children>
+                              <ImageView fitHeight="599.0" fitWidth="380.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Assets/IMG/menu_style.png" />
+                                 </image>
+                              </ImageView>
+                              <VBox fx:id="optionsMenu" alignment="TOP_CENTER" layoutX="4.0" prefHeight="593.0" prefWidth="365.0" visible="false">
+                                 <children>
+                                    <AnchorPane prefHeight="132.0" prefWidth="365.0">
+                                       <children>
+                                          <ImageView fitHeight="47.0" fitWidth="200.0" layoutX="83.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../Assets/IMG/audioOption.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </AnchorPane>
+                                    <VBox alignment="CENTER" prefHeight="211.0" prefWidth="365.0">
+                                       <children>
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                             <children>
+                                                <Slider fx:id="volumeSlider" layoutX="76.0" layoutY="24.0" prefHeight="14.0" prefWidth="214.0" />
+                                                <Button fx:id="returnToMainMenu" layoutX="58.0" layoutY="100.0" mnemonicParsing="false" onAction="#returnToMainMenu" prefHeight="48.0" prefWidth="250.0" style="-fx-background-color: transparent;">
+                                                   <graphic>
+                                                      <ImageView fx:id="" fitHeight="40.0" fitWidth="230.0" pickOnBounds="true">
+                                                         <image>
+                                                            <Image url="@../Assets/IMG/btnExit.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </graphic>
+                                                </Button>
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </VBox>
+                              <VBox fx:id="mainMenu" alignment="TOP_CENTER" prefHeight="607.0" prefWidth="376.0">
+                                 <children>
+                                    <VBox alignment="CENTER" prefHeight="231.0" prefWidth="376.0" spacing="20.0">
+                                       <children>
+                                          <Button fx:id="btnPlay" mnemonicParsing="false" onAction="#play" prefHeight="48.0" prefWidth="250.0" style="-fx-background-color: transparent;">
+                                             <graphic>
+                                                <ImageView fitHeight="40.0" fitWidth="230.0" pickOnBounds="true">
+                                                   <image>
+                                                      <Image url="@../Assets/IMG/btnPlay.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
+                                          <Button fx:id="btnOptions" mnemonicParsing="false" onAction="#optionsMenu" prefHeight="48.0" prefWidth="250.0" style="-fx-background-color: transparent;">
+                                             <graphic>
+                                                <ImageView fitHeight="40.0" fitWidth="230.0" pickOnBounds="true">
+                                                   <image>
+                                                      <Image url="@../Assets/IMG/btnOptions.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
+                                          <Button fx:id="exitBtn1" layoutX="73.0" layoutY="136.0" mnemonicParsing="false" onAction="#exit" prefHeight="48.0" prefWidth="250.0" style="-fx-background-color: transparent;">
+                                             <graphic>
+                                                <ImageView fitHeight="40.0" fitWidth="230.0" pickOnBounds="true">
+                                                   <image>
+                                                      <Image url="@../Assets/IMG/btnExit.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
+                                       </children>
+                                    </VBox>
+                                    <ImageView fitHeight="371.0" fitWidth="372.0" pickOnBounds="true">
+                                       <image>
+                                          <Image url="@../Assets/IMG/credits.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
                      </children>
                   </VBox>
                   <ImageView fitHeight="125.0" fitWidth="570.0" layoutX="5.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
@@ -25,6 +113,20 @@
                         <Image url="@../Assets/IMG/title.png" />
                      </image>
                   </ImageView>
+                  <VBox alignment="CENTER" layoutX="100.0" layoutY="152.0" prefHeight="610.0" prefWidth="380.0" spacing="10.0" visible="false">
+                     <children>
+                        <AnchorPane prefHeight="610.0" prefWidth="380.0" style="-fx-background-color: transparent;">
+                           <children>
+                              <ImageView fitHeight="610.0" fitWidth="380.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Assets/IMG/menu_style.png" />
+                                 </image>
+                              </ImageView>
+                              <VBox prefHeight="607.0" prefWidth="376.0" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
                </children>
             </AnchorPane>
          </center>

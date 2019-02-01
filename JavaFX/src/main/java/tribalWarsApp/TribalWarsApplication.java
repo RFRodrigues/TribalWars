@@ -18,6 +18,7 @@ public class TribalWarsApplication extends Application {
     private AnchorPane page;
     private Screen ecra = Screen.getPrimary();
     private Rectangle2D window = ecra.getVisualBounds();
+    private double x, y;
 
     public static void main(String[] args) {
         TribalWarsMenu.launch(TribalWarsApplication.class, (String[]) null);
@@ -26,19 +27,23 @@ public class TribalWarsApplication extends Application {
     @Override
     public void start(Stage stage){
         try {
-            TribalWarsApplication.stage= stage;
+            TribalWarsMenu.stage = stage;
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("FXML/TribalWarsApp.fxml"));
             scene = new Scene(root);
             stage.initStyle(StageStyle.UNDECORATED);
-            stage.setX(window.getMinX());
-            stage.setY(window.getMinY());
-            stage.setWidth(window.getWidth());
-            stage.setHeight(window.getHeight());
             stage.setScene(scene);
-            stage.show();
+            root.setOnMousePressed(event -> {
+                x = event.getSceneX();
+                y = event.getSceneY();
+            });
+            root.setOnMouseDragged(event -> {
 
-        }
-        catch (Exception ex){
+                stage.setX(event.getScreenX() - x);
+                stage.setY(event.getScreenY() - y);
+
+            });
+            stage.show();
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
