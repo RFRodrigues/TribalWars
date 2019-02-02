@@ -3,8 +3,6 @@ package tribalWarsControllers;
 import Utility.TBWMediaPlayer;
 import Utility.TBWPropertiesManager;
 import javafx.application.Platform;
-import javafx.beans.InvalidationListener;
-import javafx.beans.Observable;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -14,7 +12,6 @@ import javafx.scene.layout.VBox;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import tribalWarsApp.TribalWarsApplication;
-import tribalWarsApp.TribalWarsOptionsMenu;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -59,20 +56,21 @@ public class TribalWarsMenuController implements Initializable {
     }
 
     @FXML
-    void returnToMainMenu(){
+    void returnToMainMenu() {
         optionsMenu.setVisible(false);
         mainMenu.setVisible(true);
     }
 
-    void mediaPlayer(){
+    void mediaPlayer() {
         mediaPlayer = TBWMediaPlayer.getMediaPlayer();
     }
 
-    void volumeListener(){
+    void volumeListener() {
         TBWPropertiesManager propertiesManager = new TBWPropertiesManager();
         volumeSlider.valueProperty().addListener(observable -> {
-            TBWMediaPlayer.setVolume(volumeSlider.getValue() /100);
-            propertiesManager.setVolumeValues(volumeSlider.getValue() / 100);
+            TBWMediaPlayer.setVolume(volumeSlider.getValue() / 100);
+            Double volumeValue = volumeSlider.getValue() / 100;
+            propertiesManager.writeAudioVolume(volumeValue);
         });
     }
 
@@ -82,13 +80,16 @@ public class TribalWarsMenuController implements Initializable {
         optionsMenu.setVisible(false);
         TBWPropertiesManager readProperties = new TBWPropertiesManager();
         try {
-            volumeLevel = readProperties.getVolumeValues();
+            volumeLevel = readProperties.readAudioVolume();
             volumeSlider.setValue(volumeLevel * 100);
         } catch (Exception e) {
             e.printStackTrace();
         }
         mediaPlayer();
-        TBWMediaPlayer.playTitle(volumeLevel);
+        if (volumeLevel == null){
+            TBWMediaPlayer.playTitle(1);
+        }
+        else TBWMediaPlayer.playTitle(volumeLevel);
         volumeListener();
     }
 }
