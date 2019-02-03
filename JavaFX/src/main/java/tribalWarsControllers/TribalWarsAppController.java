@@ -13,7 +13,7 @@ public class TribalWarsAppController implements Initializable {
         double volumeLevel = 0;
         TBWPropertiesManager readProperties = new TBWPropertiesManager();
         try {
-            volumeLevel = readProperties.getVolumeValues();
+            volumeLevel = readProperties.readAudioVolume();
         } catch (Exception e){
             e.printStackTrace();
         }

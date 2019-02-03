@@ -1,62 +1,50 @@
 package Utility;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.Properties;
 
 public class TBWPropertiesManager {
-    Double volume;
-    InputStream inputStream;
+    Properties prop = new Properties();
+    OutputStream output = null;
+    InputStream input = null;
 
-    public Double getVolumeValues() throws IOException{
-        try{
-            Properties properties = new Properties();
-            String propertiesFile = "config.properties";
-
-            inputStream = getClass().getClassLoader().getResourceAsStream(propertiesFile);
-            if (inputStream != null){
-                properties.load(inputStream);
-                System.out.println("not null");
-            } else {
-                throw new FileNotFoundException("property file not found." );
+    public void writeAudioVolume(Double volume) {
+        String levels = volume.toString();
+        try {
+            output = new FileOutputStream("TBWConfig.properties");
+            prop.setProperty("volumeLevel", levels);
+            prop.store(output, null);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (output != null) {
+                try {
+                    output.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
+        }
+    }
 
-            volume = Double.parseDouble(properties.getProperty("volumeLevel"));
-
-
+    public Double readAudioVolume() {
+        double audioVolume = 0.0;
+        try {
+            input = new FileInputStream("TBWConfig.properties");
+            prop.load(input);
+            audioVolume = Double.parseDouble(prop.getProperty("volumeLevel"));
         } catch (Exception e){
             e.printStackTrace();
-        }
-        finally {
-            inputStream.close();
-        }
-        return volume;
-    }
-
-    public void setVolumeValues(Double volumeLevel){
-        Properties properties = new Properties();
-        String propertiesFile = "config.properties";
-        FileOutputStream fos = null;
-        String volumeLevels = volumeLevel.toString();
-        try {
-            fos = new FileOutputStream("/config.properties");
-            properties.put("volumeLevel", volumeLevels);
-            properties.store(fos, "");
-        } catch (IOException e){
-            e.printStackTrace();
-        }
-        finally {
-            try {
-                if (fos != null){
-                    fos.close();
+        } finally {
+            if (input != null){
+                try {
+                    input.close();
+                } catch (IOException e){
+                    e.printStackTrace();
                 }
-            } catch (Exception e){
-                e.printStackTrace();
             }
         }
+        return audioVolume;
     }
-
 
 }
