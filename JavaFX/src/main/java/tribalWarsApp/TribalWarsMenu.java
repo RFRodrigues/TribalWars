@@ -26,8 +26,6 @@ public class TribalWarsMenu extends Application {
     @Override
     public void start(Stage stage) {
         try {
-            Firebase firebase = new Firebase();
-            firebase.FirebaseTesting();
             TribalWarsMenu.stage = stage;
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("FXML/TribalWarsMenu.fxml"));
             scene = new Scene(root);

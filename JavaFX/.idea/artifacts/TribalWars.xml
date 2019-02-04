@@ -14,8 +14,8 @@
       </options>
     </properties>
     <root id="root">
-      <element id="archive" name="TBFX.jar">
-        <element id="module-output" name="TBFX" />
+      <element id="archive" name="JavaFX.jar">
+        <element id="module-output" name="JavaFX" />
       </element>
     </root>
   </artifact>

@@ -87,9 +87,9 @@ public class TribalWarsMenuController implements Initializable {
         }
         mediaPlayer();
         if (volumeLevel == null){
-            TBWMediaPlayer.playTitle(1);
+            TBWMediaPlayer.playSoundtrack(0,volumeLevel);
         }
-        else TBWMediaPlayer.playTitle(volumeLevel);
+        else TBWMediaPlayer.playSoundtrack(0,volumeLevel);
         volumeListener();
     }
 }

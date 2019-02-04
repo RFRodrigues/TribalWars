@@ -1,8 +1,8 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="TribalWars:jar">
+  <artifact type="jar" name="TribalWars.jar">
     <output-path>$PROJECT_DIR$/out/artifacts/TribalWars_jar</output-path>
-    <root id="archive" name="TBFX.jar">
-      <element id="module-output" name="TBFX" />
+    <root id="archive" name="TribalWars.jar">
+      <element id="module-output" name="JavaFX" />
     </root>
   </artifact>
 </component>

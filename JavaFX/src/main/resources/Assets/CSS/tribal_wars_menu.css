@@ -1,3 +1,7 @@
 .backgroundMenu{
     -fx-background-image: url("/Assets/IMG/background.png");
 }
+
+.submenus{
+    -fx-background-image: url("/Assets/IMG/submenu_style.png");
+}

@@ -1,7 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="af18cfb1-04c1-4c8a-b4a9-bfd364b1953c" name="Default Changelist" comment="" />
+    <list default="true" id="af18cfb1-04c1-4c8a-b4a9-bfd364b1953c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/JavaFX/src/main/resources/Assets/IMG/food.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaFX/src/main/resources/Assets/IMG/goldIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaFX/src/main/resources/Assets/IMG/population.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaFX/src/main/resources/Assets/IMG/stone.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaFX/src/main/resources/Assets/IMG/submenu_style.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaFX/src/main/resources/Assets/IMG/wood.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaFX/src/main/resources/Assets/SOUND/TBWambience01.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaFX/src/main/resources/Assets/SOUND/TBWambience02.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaFX/src/main/resources/Assets/SOUND/TBWambience03.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaFX/.idea/artifacts/TribalWars.xml" beforeDir="false" afterPath="$PROJECT_DIR$/JavaFX/.idea/artifacts/TribalWars.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaFX/.idea/artifacts/TribalWars_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/JavaFX/.idea/artifacts/TribalWars_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaFX/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/JavaFX/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaFX/TBWConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/JavaFX/TBWConfig.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/java/Utility/TBWMediaPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaFX/src/main/java/Utility/TBWMediaPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/java/tribalWarsApp/Firebase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/java/tribalWarsApp/TribalWarsMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaFX/src/main/java/tribalWarsApp/TribalWarsMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/java/tribalWarsControllers/TribalWarsAppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaFX/src/main/java/tribalWarsControllers/TribalWarsAppController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/java/tribalWarsControllers/TribalWarsMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaFX/src/main/java/tribalWarsControllers/TribalWarsMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/resources/Assets/CSS/tribal_wars_menu.css" beforeDir="false" afterPath="$PROJECT_DIR$/JavaFX/src/main/resources/Assets/CSS/tribal_wars_menu.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/resources/Assets/IMG/navbarPlayer.png" beforeDir="false" afterPath="$PROJECT_DIR$/JavaFX/src/main/resources/Assets/IMG/navbarPlayer.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/resources/FXML/TribalWarsApp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/JavaFX/src/main/resources/FXML/TribalWarsApp.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaFX/target/classes/Assets/CSS/tribal_wars_menu.css" beforeDir="false" afterPath="$PROJECT_DIR$/JavaFX/target/classes/Assets/CSS/tribal_wars_menu.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaFX/target/classes/Assets/IMG/navbarPlayer.png" beforeDir="false" afterPath="$PROJECT_DIR$/JavaFX/target/classes/Assets/IMG/navbarPlayer.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaFX/target/classes/FXML/TribalWarsApp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/JavaFX/target/classes/FXML/TribalWarsApp.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaFX/target/classes/Utility/TBWMediaPlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaFX/target/classes/Utility/TBWMediaPlayer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaFX/target/classes/tribalWarsApp/Firebase.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaFX/target/classes/tribalWarsApp/TribalWarsMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaFX/target/classes/tribalWarsApp/TribalWarsMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaFX/target/classes/tribalWarsControllers/TribalWarsAppController.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaFX/target/classes/tribalWarsControllers/TribalWarsAppController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaFX/target/classes/tribalWarsControllers/TribalWarsMenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaFX/target/classes/tribalWarsControllers/TribalWarsMenuController.class" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,6 +44,15 @@
         <counts>
           <entry key="project.closed" value="1" />
           <entry key="project.open.time.2" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
+    <session id="1941993667">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.0" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
       </usages-collector>
@@ -33,8 +72,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -116,6 +153,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -150,17 +189,13 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info id="Image Layers" />
-      <window_info id="Designer" />
-      <window_info id="UI Designer" />
-      <window_info id="Capture Tool" />
-      <window_info id="Favorites" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="TMC Test Results" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -168,15 +203,19 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette" />
-      <window_info anchor="right" id="TMC Project List" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info anchor="right" id="Maven Projects" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="TMC Test Results" order="9" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="TMC Project List" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Theme Preview" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Maven Projects" order="8" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
