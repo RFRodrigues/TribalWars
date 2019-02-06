@@ -31,6 +31,16 @@
                                     <Image url="@../Assets/IMG/TownView.png" />
                                  </image>
                               </ImageView>
+                              <Button contentDisplay="CENTER" layoutX="465.0" layoutY="300.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: transparent;">
+                                 <graphic>
+                                    <ImageView fitHeight="79.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Assets/IMG/townCenter.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <TextField alignment="CENTER" disable="true" editable="false" layoutX="496.0" layoutY="388.0" prefHeight="25.0" prefWidth="38.0" text="1" />
                            </children>
                         </AnchorPane>
                      </center>
