@@ -3,10 +3,16 @@ package Utility;
 import java.io.*;
 import java.util.Properties;
 
-public class TBWPropertiesManager {
+public class TBWPropertiesManagerST {
     Properties prop = new Properties();
     OutputStream output = null;
     InputStream input = null;
+
+    private static TBWPropertiesManagerST ourInstance = new TBWPropertiesManagerST();
+
+    public static TBWPropertiesManagerST getInstance() {
+        return ourInstance;
+    }
 
     public void writeAudioVolume(Double volume) {
         String levels = volume.toString();
@@ -47,4 +53,6 @@ public class TBWPropertiesManager {
         return audioVolume;
     }
 
+    private TBWPropertiesManagerST() {
+    }
 }

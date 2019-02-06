@@ -1,7 +1,7 @@
 package tribalWarsControllers;
 
-import Utility.TBWMediaPlayer;
-import Utility.TBWPropertiesManager;
+import Utility.TBWMediaPlayerST;
+import Utility.TBWPropertiesManagerST;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -9,7 +9,6 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Slider;
 import javafx.scene.layout.VBox;
-import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import tribalWarsApp.TribalWarsApplication;
 
@@ -33,8 +32,8 @@ public class TribalWarsMenuController implements Initializable {
     @FXML
     private Slider volumeSlider;
 
-    private MediaPlayer mediaPlayer;
-    private Double volumeLevel;
+    private static TBWMediaPlayerST mediaPlayer;
+    private double volumeLevel;
 
     @FXML
     private void exit() {
@@ -42,7 +41,7 @@ public class TribalWarsMenuController implements Initializable {
     }
 
     public void play(javafx.event.ActionEvent actionEvent) {
-        Utility.TBWMediaPlayer.getMediaPlayer().stop();
+        TBWMediaPlayerST.getInstance().stop();
         new TribalWarsApplication().start(new Stage());
         Node source = (Node) actionEvent.getSource();
         Stage stage = (Stage) source.getScene().getWindow();
@@ -61,16 +60,11 @@ public class TribalWarsMenuController implements Initializable {
         mainMenu.setVisible(true);
     }
 
-    void mediaPlayer() {
-        mediaPlayer = TBWMediaPlayer.getMediaPlayer();
-    }
-
-    void volumeListener() {
-        TBWPropertiesManager propertiesManager = new TBWPropertiesManager();
+    private void volumeListener() {
         volumeSlider.valueProperty().addListener(observable -> {
-            TBWMediaPlayer.setVolume(volumeSlider.getValue() / 100);
+            TBWMediaPlayerST.getInstance().setVolume(volumeSlider.getValue() / 100);
             Double volumeValue = volumeSlider.getValue() / 100;
-            propertiesManager.writeAudioVolume(volumeValue);
+            TBWPropertiesManagerST.getInstance().writeAudioVolume(volumeValue);
         });
     }
 
@@ -78,18 +72,17 @@ public class TribalWarsMenuController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         mainMenu.setVisible(true);
         optionsMenu.setVisible(false);
-        TBWPropertiesManager readProperties = new TBWPropertiesManager();
         try {
-            volumeLevel = readProperties.readAudioVolume();
+            volumeLevel = TBWPropertiesManagerST.getInstance().readAudioVolume();
             volumeSlider.setValue(volumeLevel * 100);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        mediaPlayer();
-        if (volumeLevel == null){
-            TBWMediaPlayer.playSoundtrack(0,volumeLevel);
+        if (volumeLevel < 0){
+            volumeLevel = 0.5;
+           TBWMediaPlayerST.getInstance().playSoundtrack("title",volumeLevel);
         }
-        else TBWMediaPlayer.playSoundtrack(0,volumeLevel);
+        else TBWMediaPlayerST.getInstance().playSoundtrack("title",volumeLevel);
         volumeListener();
     }
 }

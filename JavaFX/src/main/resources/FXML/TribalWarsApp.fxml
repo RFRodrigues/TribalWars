@@ -157,7 +157,7 @@
                                              <children>
                                                 <AnchorPane prefHeight="200.0" prefWidth="193.0">
                                                    <children>
-                                                      <ListView fx:id="soundtrackLV" layoutX="7.0" layoutY="5.0" prefHeight="99.0" prefWidth="226.0" />
+                                                      <ListView fx:id="soundtrackLV" layoutX="7.0" layoutY="5.0" onMouseClicked="#handleAudioChange" prefHeight="99.0" prefWidth="226.0" />
                                                       <Slider fx:id="volumeSlider" layoutX="11.0" layoutY="111.0" prefHeight="14.0" prefWidth="209.0" />
                                                    </children>
                                                 </AnchorPane>

@@ -1,22 +1,22 @@
 package Utility;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.fxml.Initializable;
 import javafx.scene.media.Media;
 import javafx.util.Duration;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.ResourceBundle;
 
-public class TBWMediaPlayer implements Initializable {
+public class TBWMediaPlayerST {
 
-    private static URL titleMusic = TBWMediaPlayer.class.getClassLoader().getResource("Assets/SOUND/titleMusic.mp3");
-    private static URL TBWAmbience01 = TBWMediaPlayer.class.getClassLoader().getResource("Assets/SOUND/TBWambience01.mp3");
-    private static URL TBWAmbience02 = TBWMediaPlayer.class.getClassLoader().getResource("Assets/SOUND/TBWambience02.mp3");
-    private static URL TBWAmbience03 = TBWMediaPlayer.class.getClassLoader().getResource("Assets/SOUND/TBWambience03.mp3");
+    private static TBWMediaPlayerST ourInstance = new TBWMediaPlayerST();
+
+    public static TBWMediaPlayerST getInstance() {
+        return ourInstance;
+    }
+
+    private static URL titleMusic = TBWMediaPlayerST.class.getClassLoader().getResource("Assets/SOUND/titleMusic.mp3");
+    private static URL TBWAmbience01 = TBWMediaPlayerST.class.getClassLoader().getResource("Assets/SOUND/TBWambience01.mp3");
+    private static URL TBWAmbience02 = TBWMediaPlayerST.class.getClassLoader().getResource("Assets/SOUND/TBWambience02.mp3");
+    private static URL TBWAmbience03 = TBWMediaPlayerST.class.getClassLoader().getResource("Assets/SOUND/TBWambience03.mp3");
 
     private int volumeIntensity;
 
@@ -34,23 +34,28 @@ public class TBWMediaPlayer implements Initializable {
         return mediaPlayer;
     }
 
-    public static void setVolume(Double volume) {
+    public void stop(){
+        mediaPlayer.stop();
+    }
+
+
+    public void setVolume(Double volume) {
         mediaPlayer.setVolume(volume);
     }
 
-    public static void playSoundtrack(int mediaTracks, double volumeLevel) {
-        String soundtrack = "";
-        switch (mediaTracks) {
-            case 0:
+    public void playSoundtrack(String soundtrackName, double volumeLevel) {
+        String soundtrack = soundtrackName;
+        switch (soundtrack) {
+            case "title":
                 soundtrack = titleMusic.toString();
                 break;
-            case 1:
+            case "ambience01":
                 soundtrack = TBWAmbience01.toString();
                 break;
-            case 2:
+            case "ambience02":
                 soundtrack = TBWAmbience02.toString();
                 break;
-            case 3:
+            case "ambience03":
                 soundtrack = TBWAmbience03.toString();
                 break;
         }
@@ -64,8 +69,6 @@ public class TBWMediaPlayer implements Initializable {
         }
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
+    private TBWMediaPlayerST() {
     }
 }
