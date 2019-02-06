@@ -2,6 +2,7 @@ package tribalWarsControllers;
 
 import Utility.TBWMediaPlayerST;
 import Utility.TBWPropertiesManagerST;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
@@ -26,6 +27,8 @@ public class TribalWarsAppController implements Initializable {
     private ListView<String> soundtrackLV;
     @FXML
     private Slider volumeSlider;
+    @FXML
+    private Button btnExit;
 
     private boolean menuOpen = false;
     private ObservableList<String> soundtrackOB = FXCollections.observableArrayList();
@@ -56,6 +59,11 @@ public class TribalWarsAppController implements Initializable {
         soundtrackOB.add("ambience01");
         soundtrackOB.add("ambience02");
         soundtrackOB.add("ambience03");
+    }
+
+    @FXML
+    private void exit(){
+        Platform.exit();
     }
 
     private void volumeListener() {

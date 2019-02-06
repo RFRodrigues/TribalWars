@@ -142,6 +142,15 @@
                                           </Button>
                                        </children>
                                     </VBox>
+                                    <Button fx:id="btnExitAPP" alignment="CENTER" mnemonicParsing="false" onAction="#exit" prefHeight="57.0" prefWidth="216.0" style="-fx-background-color: transparent;">
+                                       <graphic>
+                                          <ImageView fitHeight="38.0" fitWidth="216.0" pickOnBounds="true">
+                                             <image>
+                                                <Image url="@../Assets/IMG/btnExit.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
                                     <VBox fx:id="optionsMenuVBOX" alignment="TOP_CENTER" prefHeight="341.0" prefWidth="237.0" styleClass="submenus" stylesheets="@../Assets/CSS/tribal_wars_menu.css" visible="false">
                                        <children>
                                           <AnchorPane prefHeight="68.0" prefWidth="237.0">
