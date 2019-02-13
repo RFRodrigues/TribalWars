@@ -1,5 +1,6 @@
 package tribalWarsApp;
 
+import Utility.TBWConnectionMasterBuilder;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
@@ -9,6 +10,11 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import tribalWarsControllers.TribalWarsAppController;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 
 public class TribalWarsApplication extends Application {
@@ -47,4 +53,6 @@ public class TribalWarsApplication extends Application {
             ex.printStackTrace();
         }
     }
+
+
 }

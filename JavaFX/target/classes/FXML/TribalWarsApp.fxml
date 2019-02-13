@@ -147,7 +147,7 @@
                                                 <Image url="@../Assets/IMG/hall_of_fame/hof-banner.png" />
                                              </image>
                                           </ImageView>
-                                          <Label alignment="CENTER" contentDisplay="CENTER" layoutX="25.0" layoutY="161.0" prefHeight="17.0" prefWidth="185.0" text="BERSERKEIRO" textFill="WHITE" />
+                                          <Label fx:id="playerName" alignment="CENTER" contentDisplay="CENTER" layoutX="25.0" layoutY="161.0" prefHeight="17.0" prefWidth="185.0" text="BERSERKEIRO" textFill="WHITE" />
                                        </children>
                                     </AnchorPane>
                                  </children></VBox>

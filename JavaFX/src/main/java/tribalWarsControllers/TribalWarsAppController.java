@@ -5,13 +5,12 @@ import Utility.TBWPropertiesManagerST;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Slider;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
 import java.net.URL;
@@ -29,10 +28,17 @@ public class TribalWarsAppController implements Initializable {
     private Slider volumeSlider;
     @FXML
     private Button btnExit;
+    @FXML
+    private Label playerName;
 
     private boolean menuOpen = false;
     private ObservableList<String> soundtrackOB = FXCollections.observableArrayList();
     private double volumeLevel;
+    private String username;
+
+    public void setUsername(){
+        playerName.setText(TribalWarsMenuController.UserInstance);
+    }
 
     @FXML
     private void optionMenu() {
@@ -82,6 +88,7 @@ public class TribalWarsAppController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        setUsername();
         soundtrackList();
         volumeListener();
         try {
