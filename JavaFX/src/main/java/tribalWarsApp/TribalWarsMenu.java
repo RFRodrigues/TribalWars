@@ -1,5 +1,6 @@
 package tribalWarsApp;
 
+import Utility.TBWMongoDB;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
@@ -42,6 +43,8 @@ public class TribalWarsMenu extends Application {
 
             });
             stage.show();
+            TBWMongoDB tbwMongoDB = new TBWMongoDB();
+            tbwMongoDB.testDB();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
