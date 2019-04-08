@@ -22,8 +22,9 @@ class CityView extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
-  componentWillMount(){
+  componentWillMount() {
     localStorage.setItem('EdificioPrincipal', require("./resources/images/Main1.png"));
+    localStorage.setItem('Quartel', require("./resources/images/Barracks1.png"));
   }
 
   render() {
@@ -31,10 +32,14 @@ class CityView extends Component {
     return (
       <div id="cityView">
         <div id="city">
-          <Building nivel={10} nome={"EdificioPrincipal"}/>
-          <Building nivel={2} nome={"Quartel"} />
+          <div style={{ width: "min-content", position: "relative", top: "95px", left: "323px" }}>
+            <Building nivel={10} nome={"EdificioPrincipal"} />
+          </div>
+          <div style={{ width: "min-content", position: "relative", top: "95px", left: "390px" }}>
+            <Building nivel={2} nome={"Quartel"} />
+          </div>
         </div>
-      </div>
+      </div >
     );
   }
 }
