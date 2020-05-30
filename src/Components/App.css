@@ -101,9 +101,8 @@
   background-color: burlywood;
 }
 
-.building > button{
-  -webkit-appearance: listitem !important;
-  width: 150px;
+.btnBuilding {
+  background-color: transparent;
 }
 
 .error{
