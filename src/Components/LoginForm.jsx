@@ -1,14 +1,24 @@
-import React, { Component } from 'react';
-import { FormControl, FormGroup, ControlLabel, HelpBlock, Checkbox, Radio, Button, Col, Form, Modal } from 'react-bootstrap';
-import './App.css';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import {
+  FormControl,
+  FormGroup,
+  ControlLabel,
+  HelpBlock,
+  Checkbox,
+  Radio,
+  Button,
+  Col,
+  Form,
+  Modal,
+} from "react-bootstrap";
+import "./App.css";
+import PropTypes from "prop-types";
 import firebase from "firebase";
-import CityView from './CityView';
-import { Link } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import PubSub from 'pubsub-js';
-
+import CityView from "./CityView";
+import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import PubSub from "pubsub-js";
 
 var config = {
   apiKey: "AIzaSyBbGn-CM2XXJAmhkTERlsGDRyYryij9D4g",
@@ -16,15 +26,11 @@ var config = {
   databaseURL: "https://tribalwars-15493.firebaseio.com",
   projectId: "tribalwars-15493",
   storageBucket: "tribalwars-15493.appspot.com",
-  messagingSenderId: "1009323283348"
+  messagingSenderId: "1009323283348",
 };
 firebase.initializeApp(config);
 
-
-
-
 class LoginForm extends React.Component {
-
   constructor() {
     super();
 
@@ -32,7 +38,7 @@ class LoginForm extends React.Component {
       username: "",
       password: "",
       submited: false,
-      teste: false
+      teste: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -42,46 +48,36 @@ class LoginForm extends React.Component {
 
   handleChange(e) {
     this.setState({ [e.target.name]: e.target.value, submited: false });
-
   }
 
-
-  componentWillMount() {
-  }
-
-
+  componentWillMount() {}
 
   //needs fix (toast tem que ser fora do ciclo)
   handleSubmit() {
-
     var error = "";
 
     this.setState({ submited: true });
 
-    var db = firebase.database().ref('/Users');
-    db.once('value', (snapshot) => {
+    var db = firebase.database().ref("/Users");
+    db.once("value", (snapshot) => {
       var users = snapshot.val();
 
       for (var user in users) {
         if (users.hasOwnProperty(user)) {
-          if (users[user].email || users[user].username === this.state.username) {
-
+          if (
+            users[user].email ||
+            users[user].username === this.state.username
+          ) {
             if (users[user].password === this.state.password) {
-              window.location = '/cityView';
+              window.location = "/cityView";
               break;
-            }
-            else {
-              console.log("entrou primeiro");
+            } else {
               error = "Email/Password não coincidem";
             }
           }
-          else {
-            console.log("é suposto ser no fim");
-            error = "O utilizador não existe";
-          }
         }
+        toast.error(error);
       }
-      toast.error(error);
     });
   }
 
@@ -89,7 +85,7 @@ class LoginForm extends React.Component {
     this.setState({ teste: true });
   }
 
-  handleRecover(){
+  handleRecover() {
     const template = "template_H0XAbhaM";
 
     /*this.sendFeedback(
@@ -97,38 +93,42 @@ class LoginForm extends React.Component {
       this.state.nickname,
       this.generateLink())*/
   }
-  
 
   sendFeedback(templateId, receiverEmail, message) {
-    window.emailjs.send(
-      'gmail',
-      templateId,
-      {
+    window.emailjs
+      .send("gmail", templateId, {
         receiverEmail,
-        message
+        message,
       })
-      .catch(err => console.error('Failed to send feedback. Error: ', err))
+      .catch((err) => console.error("Failed to send feedback. Error: ", err));
   }
 
-  generateLink(){
-    return window.location.href+"/ForgotPassword";
+  generateLink() {
+    return window.location.href + "/ForgotPassword";
   }
-
 
   render() {
     if (this.state.teste) {
-      console.log(this.state.teste)
+      console.log(this.state.teste);
       return (
         <div className="backdrop">
           <ToastContainer />
           <Form horizontal>
             <FormGroup controlId="formHorizontalUsername">
-              <Col componentClass={ControlLabel} sm={2}>
-                Email/Username
-            </Col>
+              <Col componentClass={ControlLabel}>Email/Username</Col>
               <Col sm={10}>
-                <FormControl name="username" value={this.state.username} onChange={this.handleChange} type="text" placeholder="Email/Username" />
-                <span className="error">{this.state.submited && this.state.username == "" ? "Nome de utilizador inválido" : ""}</span>
+                <FormControl
+                  name="username"
+                  value={this.state.username}
+                  onChange={this.handleChange}
+                  type="text"
+                  placeholder="Email/Username"
+                />
+                <span className="error">
+                  {this.state.submited && this.state.username == ""
+                    ? "Nome de utilizador inválido"
+                    : ""}
+                </span>
               </Col>
             </FormGroup>
             <FormGroup>
@@ -139,30 +139,47 @@ class LoginForm extends React.Component {
           </Form>
         </div>
       );
-    }
-    else {
-      console.log(this.state.teste)
+    } else {
+      console.log(this.state.teste);
       return (
         <div className="backdrop">
           <ToastContainer />
           <Form horizontal>
             <FormGroup controlId="formHorizontalUsername">
-              <Col componentClass={ControlLabel} sm={2}>
-                Email/Username
-            </Col>
+              <Col componentClass={ControlLabel}>Email/Username</Col>
               <Col sm={10}>
-                <FormControl name="username" value={this.state.username} onChange={this.handleChange} type="text" placeholder="Email/Username" />
-                <span className="error">{this.state.submited && this.state.username == "" ? "Nome de utilizador inválido" : ""}</span>
+                <FormControl
+                  name="username"
+                  value={this.state.username}
+                  onChange={this.handleChange}
+                  type="text"
+                  placeholder="Email/Username"
+                />
+                <span className="error">
+                  {this.state.submited && this.state.username == ""
+                    ? "Nome de utilizador inválido"
+                    : ""}
+                </span>
               </Col>
             </FormGroup>
             <FormGroup controlId="formHorizontalPassword">
-              <Col componentClass={ControlLabel} sm={2}>
-                Password
-            </Col>
+              <Col componentClass={ControlLabel}>Password</Col>
               <Col sm={10}>
-                <FormControl name="password" value={this.state.password} onChange={this.handleChange} type="password" placeholder="Password" />
-                <span className="error">{this.state.submited && this.state.password == "" ? "Password inválida" : ""}</span>
-                <span className="fake-link" onClick={this.toggleRecover}>Forgot Password</span>
+                <FormControl
+                  name="password"
+                  value={this.state.password}
+                  onChange={this.handleChange}
+                  type="password"
+                  placeholder="Password"
+                />
+                <span className="error">
+                  {this.state.submited && this.state.password == ""
+                    ? "Password inválida"
+                    : ""}
+                </span>
+                <span className="fake-link" onClick={this.toggleRecover}>
+                  Forgot Password
+                </span>
               </Col>
             </FormGroup>
             <FormGroup>
@@ -178,8 +195,7 @@ class LoginForm extends React.Component {
           </Form>
           <div className="modal">
             {this.props.children}
-            <div className="footer">
-            </div>
+            <div className="footer"></div>
           </div>
         </div>
       );
@@ -190,7 +206,7 @@ class LoginForm extends React.Component {
 Modal.propTypes = {
   onClose: PropTypes.func.isRequired,
   show: PropTypes.bool,
-  children: PropTypes.node
+  children: PropTypes.node,
 };
 
-export default LoginForm
+export default LoginForm;

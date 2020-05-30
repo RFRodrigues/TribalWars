@@ -103,7 +103,7 @@ class RegisterForm extends React.Component {
         <ToastContainer />
         <Form horizontal>
           <FormGroup controlId="formHorizontalNickName">
-            <Col componentClass={ControlLabel} sm={2}>
+            <Col componentClass={ControlLabel} >
               Nickname
           </Col>
             <Col sm={10}>
@@ -112,7 +112,7 @@ class RegisterForm extends React.Component {
             </Col>
           </FormGroup>
           <FormGroup controlId="formHorizontalEmail">
-            <Col componentClass={ControlLabel} sm={2}>
+            <Col componentClass={ControlLabel} >
               Email
           </Col>
             <Col sm={10}>
@@ -121,7 +121,7 @@ class RegisterForm extends React.Component {
             </Col>
           </FormGroup>
           <FormGroup controlId="formHorizontalPassword">
-            <Col componentClass={ControlLabel} sm={2}>
+            <Col componentClass={ControlLabel} >
               Password
           </Col>
             <Col sm={10}>
@@ -130,7 +130,7 @@ class RegisterForm extends React.Component {
             </Col>
           </FormGroup>
           <FormGroup controlId="formHorizontalPasswordConfirm">
-            <Col componentClass={ControlLabel} sm={2}>
+            <Col componentClass={ControlLabel} >
               Confirm Password
           </Col>
             <Col sm={10}>
