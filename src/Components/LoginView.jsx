@@ -16,13 +16,18 @@ class LoginView extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
+
   handleChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
 
   onCloseModal = () => {
-    this.setState({ open: false, login: false, register: false });
+    this.setState({ open: false}, () => this.resetModals());
   };
+
+  resetModals = () => {
+    this.setState({login: false, register: false});
+  }
 
   render() {
     const { open } = this.state;
@@ -54,8 +59,8 @@ class LoginView extends Component {
               <Modal
                 title={this.state.register ? "Registar" : "Login"}
                 visible={open}
-                onOk={this.handleOk}
                 onCancel={this.onCloseModal}
+                footer={null}
               >
                 {this.state.login ? <LoginForm /> : <RegisterForm />}
               </Modal>

@@ -72,6 +72,14 @@
 
 .btnlv{
   text-align: center;
+  margin-bottom: 2rem;
+}
+
+.btnlv button {
+  margin: 0 .2rem;
+  font-size: 1rem;
+  height: 4rem;
+  width: 8rem;
 }
 
 .loginImages{
@@ -101,8 +109,22 @@
   background-color: burlywood;
 }
 
+#header {
+  height: 40px;
+  background-color: #bfbfbf;
+}
+
+.resource{
+  float: right;
+  margin: 0rem 1rem;
+  border: #b3b3b3 solid 2px;
+  padding: 0.2rem;
+}
+
 .btnBuilding {
-  background-color: transparent;
+  width: min-content;
+  position: relative;
+  cursor: pointer;
 }
 
 .error{

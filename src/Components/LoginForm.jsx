@@ -4,13 +4,12 @@ import {
   FormGroup,
   ControlLabel,
   HelpBlock,
-  Checkbox,
   Radio,
-  Button,
   Col,
   Form,
   Modal,
 } from "react-bootstrap";
+import { Button, Input, Checkbox } from "antd";
 import "./App.css";
 import PropTypes from "prop-types";
 import firebase from "firebase";
@@ -19,6 +18,7 @@ import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PubSub from "pubsub-js";
+import { Label } from "reactstrap";
 
 var config = {
   apiKey: "AIzaSyBbGn-CM2XXJAmhkTERlsGDRyYryij9D4g",
@@ -38,7 +38,7 @@ class LoginForm extends React.Component {
       username: "",
       password: "",
       submited: false,
-      teste: false,
+      recover: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -52,7 +52,7 @@ class LoginForm extends React.Component {
 
   componentWillMount() {}
 
-  //needs fix (toast tem que ser fora do ciclo)
+
   handleSubmit() {
     var error = "";
 
@@ -70,6 +70,10 @@ class LoginForm extends React.Component {
           ) {
             if (users[user].password === this.state.password) {
               window.location = "/cityView";
+              localStorage.setItem(
+                "loggedUsername",
+                this.state.username
+              );
               break;
             } else {
               error = "Email/Password não coincidem";
@@ -82,7 +86,7 @@ class LoginForm extends React.Component {
   }
 
   toggleRecover() {
-    this.setState({ teste: true });
+    this.setState({ recover: true });
   }
 
   handleRecover() {
@@ -108,16 +112,15 @@ class LoginForm extends React.Component {
   }
 
   render() {
-    if (this.state.teste) {
-      console.log(this.state.teste);
+    if (this.state.recover) {
       return (
         <div className="backdrop">
           <ToastContainer />
           <Form horizontal>
             <FormGroup controlId="formHorizontalUsername">
-              <Col componentClass={ControlLabel}>Email/Username</Col>
               <Col sm={10}>
-                <FormControl
+                <Label componentClass={ControlLabel}>Email/Username</Label>
+                <Input
                   name="username"
                   value={this.state.username}
                   onChange={this.handleChange}
@@ -132,7 +135,7 @@ class LoginForm extends React.Component {
               </Col>
             </FormGroup>
             <FormGroup>
-              <Col smOffset={2} sm={10}>
+              <Col sm={10}>
                 <Button onClick={() => this.handleRecover()}>Send Email</Button>
               </Col>
             </FormGroup>
@@ -140,15 +143,14 @@ class LoginForm extends React.Component {
         </div>
       );
     } else {
-      console.log(this.state.teste);
       return (
         <div className="backdrop">
           <ToastContainer />
           <Form horizontal>
             <FormGroup controlId="formHorizontalUsername">
-              <Col componentClass={ControlLabel}>Email/Username</Col>
               <Col sm={10}>
-                <FormControl
+                <Label componentClass={ControlLabel}>Email/Username</Label>
+                <Input
                   name="username"
                   value={this.state.username}
                   onChange={this.handleChange}
@@ -163,9 +165,9 @@ class LoginForm extends React.Component {
               </Col>
             </FormGroup>
             <FormGroup controlId="formHorizontalPassword">
-              <Col componentClass={ControlLabel}>Password</Col>
               <Col sm={10}>
-                <FormControl
+                <Label componentClass={ControlLabel}>Password</Label>
+                <Input
                   name="password"
                   value={this.state.password}
                   onChange={this.handleChange}
@@ -183,12 +185,12 @@ class LoginForm extends React.Component {
               </Col>
             </FormGroup>
             <FormGroup>
-              <Col smOffset={2} sm={10}>
+              <Col sm={10}>
                 <Checkbox>Remember me</Checkbox>
               </Col>
             </FormGroup>
             <FormGroup>
-              <Col smOffset={2} sm={10}>
+              <Col sm={10}>
                 <Button onClick={() => this.handleSubmit()}>Sign in</Button>
               </Col>
             </FormGroup>

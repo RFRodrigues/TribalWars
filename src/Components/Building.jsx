@@ -9,8 +9,8 @@ class Building extends Component {
     super(props, context);
     this.state = {
       open: false,
-      nome: "",
-      nivel: 0,
+      nanem: "",
+      level: 0,
       imagem: "",
     };
     this.handleChange = this.handleChange.bind(this);
@@ -21,7 +21,7 @@ class Building extends Component {
   }
 
   componentWillMount() {
-    this.setState({ imagem: localStorage.getItem(this.props.nome) });
+    this.setState({ imagem: localStorage.getItem(this.props.name) });
   }
 
   onCloseModal = () => {
@@ -31,17 +31,15 @@ class Building extends Component {
   render() {
     const { open } = this.state;
 
+    console.log(this.props);
+
     return (
       <div className="building">
-        <Button
-          onClick={() => this.setState({ open: true })}
-          className="btnBuilding"
-        >
-          <img src={this.state.imagem} />
-        </Button>
+
+          <img src={this.state.imagem} onClick={() => this.setState({ open: true })} />
 
         <Modal
-          title={"Edificio"}
+          title={this.props.name}
           visible={open}
           onCancel={this.onCloseModal}
         >
