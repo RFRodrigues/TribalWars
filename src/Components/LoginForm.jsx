@@ -19,6 +19,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PubSub from "pubsub-js";
 import { Label } from "reactstrap";
+import axios from 'axios';
 
 var config = {
   apiKey: "AIzaSyBbGn-CM2XXJAmhkTERlsGDRyYryij9D4g",
@@ -52,11 +53,14 @@ class LoginForm extends React.Component {
 
   componentWillMount() {}
 
-
   handleSubmit() {
     var error = "";
 
     this.setState({ submited: true });
+
+    axios.get("http://tribalwarsthegame.now.sh/api/")
+      .then((response) => response.json())
+      .then((data) => console.log(data));
 
     var db = firebase.database().ref("/Users");
     db.once("value", (snapshot) => {
@@ -70,10 +74,7 @@ class LoginForm extends React.Component {
           ) {
             if (users[user].password === this.state.password) {
               window.location = "/cityView";
-              localStorage.setItem(
-                "loggedUsername",
-                this.state.username
-              );
+              localStorage.setItem("loggedUsername", this.state.username);
               break;
             } else {
               error = "Email/Password não coincidem";

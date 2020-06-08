@@ -12,7 +12,8 @@ var config = {
 };
 firebase.initializeApp(config);
 
-app.get('/', (req, res) => {
+app.get('/api/', (req, res) => {
+  console.log("hey")
   var db = firebase.database().ref('/Users');
   db.once('value', (snapshot) => {
     var users = snapshot.val();
