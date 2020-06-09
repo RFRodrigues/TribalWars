@@ -12,7 +12,7 @@
         {"src": "^/manifest.json", "dest": "/manifest.json"},
         {"src": "^/service-worker.js", "headers": {"cache-control": "s-maxage=0"}, "dest": "/service-worker.js"},
         {"src": "^/precache-manifest.(.*)", "dest": "/precache-manifest.$1"},
-        {"src": "/api", "methods": ["GET", "POST"], "dest": "/api/server.js" },
+        {"src": "/api/usersinfo/", "methods": ["GET", "POST"], "dest": "/api/server.js" },
         {"src": "^/(.*)", "dest": "/index.html"}
     ]
 }
