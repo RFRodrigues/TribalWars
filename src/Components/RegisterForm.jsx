@@ -17,6 +17,7 @@ import firebase from "firebase";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Label } from "reactstrap";
+import axios from "axios";
 
 class RegisterForm extends React.Component {
   constructor(props, context) {
@@ -44,31 +45,16 @@ class RegisterForm extends React.Component {
 
   handleSubmit() {
     if (this.verifyPasswords()) {
-      var db = firebase.database().ref("/Users");
-      db.once("value", (snapshot) => {
-        var users = snapshot.val();
-        if (users != null) {
-          for (var user in users) {
-            if (users.hasOwnProperty(user)) {
-              if (
-                users[user].email === this.state.email ||
-                users[user].username === this.state.nickname
-              ) {
-                toast.error("Email ou Nickname já existem!");
-                return;
-              }
-            }
-          }
-        }
-        firebase.database().ref("/Users").push({
-          userID: 1,
-          username: this.state.nickname,
+
+      axios
+        .post("http://localhost:5000/api/usercreate/", {
           email: this.state.email,
-          password: this.state.password,
+          nickname: this.state.nickname,
+          password: this.state.password
+        })
+        .then(function (response) {
+          console.log(response);
         });
-        //toast.success("Registo efetuado com sucesso!");
-        window.location = "/cityView";
-      });
     }
 
     const template = "template_H0XAbhaM";

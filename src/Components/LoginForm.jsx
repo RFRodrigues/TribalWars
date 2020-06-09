@@ -14,22 +14,24 @@ import "./App.css";
 import PropTypes from "prop-types";
 import firebase from "firebase";
 import CityView from "./CityView";
-import { Link } from "react-router-dom";
+import { Link, useHistory, Redirect  } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PubSub from "pubsub-js";
 import { Label } from "reactstrap";
 import axios from "axios";
 
-var config = {
+var firebaseConfig = {
   apiKey: "AIzaSyBbGn-CM2XXJAmhkTERlsGDRyYryij9D4g",
   authDomain: "tribalwars-15493.firebaseapp.com",
   databaseURL: "https://tribalwars-15493.firebaseio.com",
   projectId: "tribalwars-15493",
   storageBucket: "tribalwars-15493.appspot.com",
   messagingSenderId: "1009323283348",
+  appId: "1:1009323283348:web:465fb1bed784908d33f581",
 };
-firebase.initializeApp(config);
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
 
 class LoginForm extends React.Component {
   constructor() {
@@ -55,19 +57,19 @@ class LoginForm extends React.Component {
 
   handleSubmit() {
     var error = "";
-
     this.setState({ submited: true });
 
-    fetch("http://localhost:5000/api/", { mode: "cors" })
+    fetch("http://localhost:5000/api/usersinfo/", { mode: "cors" })
       .then((response) => response.json())
       .then((users) => {
+        console.log(users);
         for (var user in users) {
           if (users.hasOwnProperty(user)) {
             if (
-              users[user].email ||
-              users[user].username === this.state.username
+              users[user].userinfo.email ||
+              users[user].userinfo.username === this.state.username
             ) {
-              if (users[user].password === this.state.password) {
+              if (users[user].userinfo.password === this.state.password) {
                 window.location = "/cityView";
                 localStorage.setItem("loggedUsername", this.state.username);
                 break;
@@ -78,6 +80,9 @@ class LoginForm extends React.Component {
           }
           toast.error(error);
         }
+      })
+      .catch((error) => {
+        console.log(error);
       });
   }
 

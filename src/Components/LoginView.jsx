@@ -22,12 +22,10 @@ class LoginView extends Component {
   }
 
   onCloseModal = () => {
-    this.setState({ open: false}, () => this.resetModals());
+    this.setState({ open: false});
+    setTimeout(() => this.setState({login: false, register: false}), 200);
   };
 
-  resetModals = () => {
-    this.setState({login: false, register: false});
-  }
 
   render() {
     const { open } = this.state;

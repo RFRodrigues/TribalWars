@@ -28,7 +28,7 @@ class CityView extends Component {
       loading: false,
       wood: 0,
       clay: 0,
-      iron: 0
+      iron: 0,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -47,6 +47,25 @@ class CityView extends Component {
     }
   };
 
+  componentDidMount() {
+    fetch("http://localhost:5000/api/usersinfo/", { mode: "cors" })
+      .then((response) => response.json())
+      .then((users) => {
+        console.log(users);
+        for (var user in users) {
+          if (users.hasOwnProperty(user)) {
+            if (users[user].userinfo.username === localStorage.getItem("loggedUsername")) {
+              this.setState({
+                wood: users[user].resources.wood,
+                iron: users[user].resources.iron,
+                clay: users[user].resources.clay
+              });
+            }
+          }
+        }
+      });
+  }
+
   componentWillMount() {
     localStorage.setItem(
       "EdificioPrincipal",
@@ -63,16 +82,25 @@ class CityView extends Component {
       <Spin spinning={this.state.loading}>
         <div id="cityView">
           <div id="header">
-          <Select
+            <Select
               defaultValue={localStorage.getItem("loggedUsername")}
               style={{ width: 150, float: "right" }}
               onChange={this.handleChangeOption}
             >
               <Option value="loggout">Loggout</Option>
             </Select>
-            <div className="resource"><img src={ironImage}/>Ferro: {this.state.iron}</div>
-            <div className="resource"><img src={clayImage}/>Argila: {this.state.clay}</div>
-            <div className="resource"><img src={woodImage}/>Madeira: {this.state.wood}</div>
+            <div className="resource">
+              <img src={ironImage} />
+              Ferro: {this.state.iron}
+            </div>
+            <div className="resource">
+              <img src={clayImage} />
+              Argila: {this.state.clay}
+            </div>
+            <div className="resource">
+              <img src={woodImage} />
+              Madeira: {this.state.wood}
+            </div>
           </div>
           <div id="city">
             <div
