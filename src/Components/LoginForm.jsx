@@ -59,7 +59,7 @@ class LoginForm extends React.Component {
     var error = "";
     this.setState({ submited: true });
 
-    fetch("http://localhost:5000/api/usersinfo/", { mode: "cors" })
+    fetch("https://tribalwarsthegame.now.sh/api/usersinfo/", { mode: "cors" })
       .then((response) => response.json())
       .then((users) => {
         console.log(users);
