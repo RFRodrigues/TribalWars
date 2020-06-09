@@ -3,7 +3,8 @@
     "name": "TribalWars",
     "alias": "tribalwarsthegame.now.sh",
     "builds": [
-        { "src": "package.json", "use": "@now/static-build" }
+        { "src": "package.json", "use": "@now/static-build" },
+        {"src": "/api/server.js", "use": "@now/node" }
     ],
     "routes": [
         {"src": "^/static/(.*)", "dest": "/static/$1"},
@@ -12,7 +13,7 @@
         {"src": "^/manifest.json", "dest": "/manifest.json"},
         {"src": "^/service-worker.js", "headers": {"cache-control": "s-maxage=0"}, "dest": "/service-worker.js"},
         {"src": "^/precache-manifest.(.*)", "dest": "/precache-manifest.$1"},
-        {"src": "/api/usersinfo/", "methods": ["GET", "POST"], "dest": "/api/usersinfo/" },
+        
         {"src": "^/(.*)", "dest": "/index.html"}
     ]
 }

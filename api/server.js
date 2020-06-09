@@ -52,3 +52,5 @@ app.get("/api/usersinfo/", (req, res) => {
 
 app.listen(5000);
 console.log("API is running");
+
+module.exports = app;
