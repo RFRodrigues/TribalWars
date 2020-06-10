@@ -4,17 +4,18 @@
     "alias": "tribalwarsthegame.now.sh",
     "builds": [
         { "src": "package.json", "use": "@now/static-build" },
-        { "src": "api/*.js", "use": "@now/node" }
+        { "src": "api/server.js", "use": "@now/node-server" }
         
     ],
     "routes": [
+        {"src": "/api/", "dest": "/api/server.js", "methods": ["GET"] },
+        {"src": "/api/usersinfo/", "dest": "/api/server.js", "methods": ["GET"] },
         {"src": "^/static/(.*)", "dest": "/static/$1"},
         {"src": "^/favicon.ico", "dest": "/favicon.ico"},
         {"src": "^/asset-manifest.json", "dest": "/asset-manifest.json"},
         {"src": "^/manifest.json", "dest": "/manifest.json"},
         {"src": "^/service-worker.js", "headers": {"cache-control": "s-maxage=0"}, "dest": "/service-worker.js"},
         {"src": "^/precache-manifest.(.*)", "dest": "/precache-manifest.$1"},
-        {"src": "^/api/(.*)", "dest": "/api/$1" },
         {"src": "^/(.*)", "dest": "/index.html"}
     ]
 }
