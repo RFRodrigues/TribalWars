@@ -30,7 +30,7 @@
     "update": "^0.7.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "run-p server start",
     "server": "cd api && node index.js",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",

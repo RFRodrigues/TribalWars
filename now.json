@@ -4,7 +4,7 @@
     "alias": "tribalwarsthegame.now.sh",
     "builds": [
         { "src": "package.json", "use": "@now/static-build" },
-        { "src": "api/index.js", "use": "@now/node-server" }
+        { "src": "/api/index.js", "use": "@now/node-server" }
         
     ],
     "routes": [
