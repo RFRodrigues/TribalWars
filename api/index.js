@@ -45,7 +45,6 @@ app.get("/api/usersinfo/", (req, res) => {
   var db = firebase.database().ref("/users");
   db.once("value", (snapshot) => {
     var users = snapshot.val();
-    console.log(users)
     res.send(users);
   });
 });

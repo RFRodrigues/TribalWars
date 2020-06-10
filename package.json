@@ -13,6 +13,7 @@
     "link-react": "^3.0.0",
     "merge": "^1.2.1",
     "mongodb": "^3.5.8",
+    "npm-run-all": "^4.1.5",
     "pubsub-js": "^1.8.0",
     "react": "^16.13.1",
     "react-bootstrap": "^0.32.4",
@@ -30,10 +31,12 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "server": "cd api && node index.js",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "now-build": "react-scripts build && mv build dist && alias"
+    "now-build": "react-scripts build && mv build dist && alias",
+    "dev": "run-p server start"
   },
   "browserslist": {
     "production": [
