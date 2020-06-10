@@ -17,10 +17,6 @@ firebase.initializeApp(firebaseConfig);
 
 app.use(express.json());
 
-module.exports = (req, res) => {
-  res.end(`Hi!`)
-}
-
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "https://tribalwarsthegame.now.sh/"); // update to match the domain you will make the request from
   res.header(
